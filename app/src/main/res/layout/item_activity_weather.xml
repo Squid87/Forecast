@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+
+	<android.support.v7.widget.CardView
+		android:id="@+id/item_activity_weather_card_view"
+		android:layout_width="360dp"
+		android:layout_height="210dp"
+		android:layout_gravity="center"
+		android:layout_marginBottom="5dp"
+		android:layout_marginTop="15dp">
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="60dp"
+			android:background="@color/colorBackground"
+			android:orientation="horizontal">
+
+			<TextView
+				android:id="@+id/item_activity_weather_text_view_date"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="10dp"
+				android:layout_marginTop="15dp"
+				android:textSize="30sp"
+				tools:text="31/01" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerHorizontal="true"
+				android:layout_marginLeft="8dp"
+				android:layout_marginTop="8dp"
+				android:textSize="20sp"
+				tools:text="Восход" />
+
+			<TextView
+				android:id="@+id/item_activity_weather_text_view_rising_time"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentRight="true"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="40dp"
+				android:layout_marginTop="8dp"
+				android:textSize="20sp"
+				tools:text="08:00" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerHorizontal="true"
+				android:layout_marginLeft="8dp"
+				android:layout_marginTop="30dp"
+				android:textSize="20sp"
+				tools:text="Закат" />
+
+			<TextView
+				android:id="@+id/item_activity_weather_text_view_sunset_time"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentRight="true"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="40dp"
+				android:layout_marginTop="30dp"
+				android:textSize="20sp"
+				tools:text="17:00" />
+
+		</RelativeLayout>
+
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="100dp"
+			android:orientation="horizontal">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="20dp"
+				android:layout_marginTop="65dp"
+				android:textSize="20sp"
+				tools:text="Ночь" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="110dp"
+				android:layout_marginTop="65dp"
+				android:textSize="20sp"
+				tools:text="Утро" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="198dp"
+				android:layout_marginTop="65dp"
+				android:textSize="20sp"
+				tools:text="День" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="288dp"
+				android:layout_marginTop="65dp"
+				android:textSize="20sp"
+				tools:text="Вечер" />
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="120dp">
+
+			<TextView
+				android:id="@+id/item_activity_weather_text_view_night_degree"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="20dp"
+				android:layout_marginTop="90dp"
+				android:textSize="20sp"
+				tools:text="+15" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="58dp"
+				android:layout_marginTop="90dp"
+				android:textSize="20sp"
+				tools:text="C" />
+
+			<TextView
+				android:id="@+id/item_activity_weather_text_view_morning_degree"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="110dp"
+				android:layout_marginTop="90dp"
+				android:textSize="20sp"
+				tools:text="+15" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="148dp"
+				android:layout_marginTop="90dp"
+				android:textSize="20sp"
+				tools:text="C" />
+
+			<TextView
+				android:id="@+id/item_activity_weather_text_view_day_degree"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="198dp"
+				android:layout_marginTop="90dp"
+				android:textSize="20sp"
+				tools:text="+15" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="236dp"
+				android:layout_marginTop="90dp"
+				android:textSize="20sp"
+				tools:text="C" />
+
+			<TextView
+				android:id="@+id/item_activity_weather_text_view_evening_degree"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="288dp"
+				android:layout_marginTop="90dp"
+				android:textSize="20sp"
+				tools:text="+15" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="326dp"
+				android:layout_marginTop="90dp"
+				android:textSize="20sp"
+				tools:text="C" />
+
+		</RelativeLayout>
+
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="160dp">
+
+			<ImageView
+				android:layout_width="50dp"
+				android:layout_height="50dp"
+				android:layout_marginLeft="20dp"
+				android:layout_marginTop="120dp"
+				tools:src="@mipmap/ic_home" />
+
+			<ImageView
+				android:layout_width="50dp"
+				android:layout_height="50dp"
+				android:layout_marginLeft="110dp"
+				android:layout_marginTop="120dp"
+				tools:src="@mipmap/ic_home" />
+
+			<ImageView
+				android:layout_width="50dp"
+				android:layout_height="50dp"
+				android:layout_marginLeft="198dp"
+				android:layout_marginTop="120dp"
+				tools:src="@mipmap/ic_home" />
+
+			<ImageView
+				android:layout_width="50dp"
+				android:layout_height="50dp"
+				android:layout_marginLeft="288dp"
+				android:layout_marginTop="120dp"
+				tools:src="@mipmap/ic_home" />
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<TextView
+				android:layout_width="75dp"
+				android:layout_height="match_parent"
+				android:layout_marginLeft="10dp"
+				android:layout_marginTop="160dp"
+				tools:text="пасмурно небольшой дождь" />
+
+			<TextView
+				android:layout_width="75dp"
+				android:layout_height="match_parent"
+				android:layout_marginLeft="110dp"
+				android:layout_marginTop="160dp"
+				tools:text="пасмурно небольшой дождь" />
+
+			<TextView
+				android:layout_width="75dp"
+				android:layout_height="match_parent"
+				android:layout_marginLeft="198dp"
+				android:layout_marginTop="160dp"
+				tools:text="пасмурно небольшой дождь" />
+
+			<TextView
+				android:layout_width="75dp"
+				android:layout_height="match_parent"
+				android:layout_marginLeft="286dp"
+				android:layout_marginTop="160dp"
+				tools:text="пасмурно небольшой дождь" />
+
+		</RelativeLayout>
+
+
+	</android.support.v7.widget.CardView>
+
+</LinearLayout>
