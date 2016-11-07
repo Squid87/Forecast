@@ -191,32 +191,36 @@
 			android:layout_height="160dp">
 
 			<ImageView
-				android:layout_width="50dp"
-				android:layout_height="50dp"
+				android:id="@+id/item_activity_weather_image_view_00"
+				android:layout_width="@dimen/mergin_leaft_for_item_weather"
+				android:layout_height="@dimen/mergin_hight_for_item_weather"
 				android:layout_marginLeft="20dp"
 				android:layout_marginTop="120dp"
-				tools:src="@mipmap/ic_home" />
+				tools:src="@mipmap/ic_launcher" />
 
 			<ImageView
-				android:layout_width="50dp"
-				android:layout_height="50dp"
+				android:id="@+id/item_activity_weather_image_view_06"
+				android:layout_width="@dimen/mergin_leaft_for_item_weather"
+				android:layout_height="@dimen/mergin_hight_for_item_weather"
 				android:layout_marginLeft="110dp"
 				android:layout_marginTop="120dp"
-				tools:src="@mipmap/ic_home" />
+				tools:src="@mipmap/ic_launcher" />
 
 			<ImageView
-				android:layout_width="50dp"
-				android:layout_height="50dp"
+				android:id="@+id/item_activity_weather_image_view_12"
+				android:layout_width="@dimen/mergin_leaft_for_item_weather"
+				android:layout_height="@dimen/mergin_hight_for_item_weather"
 				android:layout_marginLeft="198dp"
 				android:layout_marginTop="120dp"
-				tools:src="@mipmap/ic_home" />
+				tools:src="@mipmap/ic_launcher" />
 
 			<ImageView
-				android:layout_width="50dp"
-				android:layout_height="50dp"
+				android:id="@+id/item_activity_weather_image_view_18"
+				android:layout_width="@dimen/mergin_leaft_for_item_weather"
+				android:layout_height="@dimen/mergin_hight_for_item_weather"
 				android:layout_marginLeft="288dp"
 				android:layout_marginTop="120dp"
-				tools:src="@mipmap/ic_home" />
+				tools:src="@mipmap/ic_launcher" />
 
 		</RelativeLayout>
 
@@ -225,6 +229,7 @@
 			android:layout_height="match_parent">
 
 			<TextView
+				android:id="@+id/item_activity_weather_text_view_night_cloud"
 				android:layout_width="75dp"
 				android:layout_height="match_parent"
 				android:layout_marginLeft="10dp"
@@ -232,6 +237,7 @@
 				tools:text="пасмурно небольшой дождь" />
 
 			<TextView
+				android:id="@+id/item_activity_weather_text_view_rising_cloud"
 				android:layout_width="75dp"
 				android:layout_height="match_parent"
 				android:layout_marginLeft="110dp"
@@ -239,6 +245,7 @@
 				tools:text="пасмурно небольшой дождь" />
 
 			<TextView
+				android:id="@+id/item_activity_weather_text_view_day_cloud"
 				android:layout_width="75dp"
 				android:layout_height="match_parent"
 				android:layout_marginLeft="198dp"
@@ -246,6 +253,7 @@
 				tools:text="пасмурно небольшой дождь" />
 
 			<TextView
+				android:id="@+id/item_activity_weather_text_view_evening_cloud"
 				android:layout_width="75dp"
 				android:layout_height="match_parent"
 				android:layout_marginLeft="286dp"

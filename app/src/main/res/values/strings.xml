@@ -1,3 +1,14 @@
 <resources>
 	<string name="app_name">Weather Forecast</string>
+
+	<!--City-->
+	<string name="novosibirsk">Новосибирск</string>
+	<string name="barnaul">Барнаул</string>
+	<string name="tomsk">Томск</string>
+	<string name="Krasnoyarsk">Красноярск</string>
+	<string name="Choice">Выбрать</string>
+	<string name="Skip">Пропустить</string>
+	<string name="city_name_omsk">Омск</string>
+	<string name="city_name_tomsk">Томск</string>
+
 </resources>

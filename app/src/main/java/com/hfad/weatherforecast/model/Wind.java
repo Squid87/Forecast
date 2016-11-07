@@ -9,4 +9,12 @@ public class Wind {
 
 	@SerializedName("direction")
 	public Direction mDirection;
+
+	public int getSpeed() {
+		return mSpeed;
+	}
+
+	public Direction getDirection() {
+		return mDirection;
+	}
 }

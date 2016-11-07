@@ -25,21 +25,33 @@ dependencies {
     final BUTTERKNIFE_VERSION = '8.4.0'
     final PICASSO_VERSION = '2.5.2'
     final RETROFIT_VERSION = '2.1.0'
+    final MOXY_VERSION = '1.1.1'
+
     /* support libraries */
     compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
     compile "com.android.support:support-v4:$SUPPORT_LIBRARY_VERSION"
     compile "com.android.support:recyclerview-v7:$SUPPORT_LIBRARY_VERSION"
     compile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
     compile "com.android.support:cardview-v7:$SUPPORT_LIBRARY_VERSION"
+
     /* utils */
     compile "com.squareup.picasso:picasso:$PICASSO_VERSION"
     compile "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
+
     /* retrifit */
     compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
     compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
+
     /* bottom navigation */
     compile "com.aurelhubert:ahbottomnavigation:1.5.1"
     compile "com.roughike:bottom-bar:2.0.2"
+
+    /* mvp */
+    compile "com.arello-mobile:moxy:$MOXY_VERSION"
+    provided "com.arello-mobile:moxy-compiler:$MOXY_VERSION"
+    compile "com.arello-mobile:moxy-app-compat:$MOXY_VERSION"
+    compile "com.arello-mobile:moxy-android:$MOXY_VERSION"
+
     /*ORM*/
     compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
     compile 'com.j256.ormlite:ormlite-android:5.0'

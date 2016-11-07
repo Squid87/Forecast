@@ -9,4 +9,8 @@ public class Cloud {
 
 	@SerializedName("value")
 	public String mValue;
+
+	public String getTitle() {
+		return mTitle;
+	}
 }

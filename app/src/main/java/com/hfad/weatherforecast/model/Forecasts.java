@@ -25,6 +25,15 @@ public class Forecasts {
 	@SerializedName("wind")
 	public Wind mWind;
 
+	public Links getLinks() {
+		return mLinks;
+	}
+
+	public Wind getWind() {
+
+		return mWind;
+	}
+
 	@SerializedName("cloud")
 	public Cloud mCloud;
 
@@ -49,4 +58,45 @@ public class Forecasts {
 
 	@SerializedName("links")
 	public Links mLinks;
+
+	public int getHumidity() {
+		return mHumidity;
+	}
+
+	public int getPressure() {
+
+		return mPressure;
+	}
+
+	public String getDate() {
+		return mDate;
+	}
+
+	public void setDate(String date) {
+		mDate = date;
+	}
+
+	public double getTemperature() {
+		return mTemperature;
+	}
+
+	public void setTemperature(double temperature) {
+		mTemperature = temperature;
+	}
+
+	public Cloud getCloud() {
+		return mCloud;
+	}
+
+	public void setCloud(Cloud cloud) {
+		mCloud = cloud;
+	}
+
+	public String getIconPath() {
+		return mIconPath;
+	}
+
+	public void setIconPath(String iconPath) {
+		mIconPath = iconPath;
+	}
 }
