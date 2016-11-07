@@ -12,12 +12,12 @@ import butterknife.ButterKnife;
 
 
 @SuppressWarnings("WeakerAccess")
-public class RecyclerViewSelectCiityHolder extends RecyclerView.ViewHolder {
+public class RecyclerViewSelectCityHolder extends RecyclerView.ViewHolder {
 
 	@BindView(R.id.item_select_city_choice_city)
 	private	TextView mSelectCityTextView;
 
-	public RecyclerViewSelectCiityHolder(View itemView) {
+	public RecyclerViewSelectCityHolder(View itemView) {
 		super(itemView);
 		ButterKnife.bind(this, itemView);
 	}

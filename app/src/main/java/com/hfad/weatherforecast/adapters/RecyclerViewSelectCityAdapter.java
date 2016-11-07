@@ -12,7 +12,7 @@ import com.hfad.weatherforecast.SelectCityListener;
 import com.hfad.weatherforecast.model.City;
 
 
-public class RecyclerViewSelectCityAdapter extends RecyclerView.Adapter<RecyclerViewSelectCiityHolder> {
+public class RecyclerViewSelectCityAdapter extends RecyclerView.Adapter<RecyclerViewSelectCityHolder> {
 	private static final String TAG = "RecyclerViewSelectCityAdapter";
 
 	private MvpDelegate<?> mMvpDelegate;
@@ -26,13 +26,14 @@ public class RecyclerViewSelectCityAdapter extends RecyclerView.Adapter<Recycler
 	}
 
 	@Override
-	public RecyclerViewSelectCiityHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+	public RecyclerViewSelectCityHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 		return null;
 	}
 
 	@Override
-	public void onBindViewHolder(RecyclerViewSelectCiityHolder holder, final int position) {
+	public void onBindViewHolder(RecyclerViewSelectCityHolder holder, final int position) {
 		holder.bind(mCityList.get(position));
+
 		holder.itemView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {

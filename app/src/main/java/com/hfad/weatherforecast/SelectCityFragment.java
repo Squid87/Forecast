@@ -2,6 +2,7 @@ package com.hfad.weatherforecast;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,14 +21,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class SelectCityFragment extends MvpAppCompatFragment implements MvpView, SelectCityView{
+public class SelectCityFragment extends MvpAppCompatFragment implements MvpView, SelectCityView {
 	@InjectPresenter
 	SelectCityPresenter mPresenter;
 
-	@BindView(R.id.fragment_weather_recycler_view_select_city)
+	@BindView(R.id.fragment_select_city_recycler_view)
 	RecyclerView mSelectCityRecyclerView;
 
-	@BindView(R.id.activity_fragment_weather_button_skip)
+	@BindView(R.id.fragment_select_city_button_skip)
 	Button mSkipButton;
 
 	RecyclerViewSelectCityAdapter mSelectCityRecyclerViewAdapter;
@@ -54,15 +55,18 @@ public class SelectCityFragment extends MvpAppCompatFragment implements MvpView,
 		super.onViewCreated(view, savedInstanceState);
 		ButterKnife.bind(this, view);
 
-		mSelectCityRecyclerViewAdapter = new RecyclerViewSelectCityAdapter(new SelectCityListener(){
+
+		mSelectCityRecyclerViewAdapter = new RecyclerViewSelectCityAdapter(new SelectCityListener() {
 			@Override
 			public void onSelectCity(City city) {
 				mPresenter.userSelectCity(city);
-
 				if (mSelectCityListener != null) {
 					mSelectCityListener.onSelectCity(city);
 				}
 			}
 		});
+
+		mSelectCityRecyclerView.setAdapter(mSelectCityRecyclerViewAdapter);
+		mSelectCityRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 	}
 }
