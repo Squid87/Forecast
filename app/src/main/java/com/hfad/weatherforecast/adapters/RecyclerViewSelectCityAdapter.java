@@ -4,10 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.arellomobile.mvp.MvpDelegate;
+import com.hfad.weatherforecast.R;
 import com.hfad.weatherforecast.SelectCityListener;
 import com.hfad.weatherforecast.model.City;
 
@@ -15,19 +16,19 @@ import com.hfad.weatherforecast.model.City;
 public class RecyclerViewSelectCityAdapter extends RecyclerView.Adapter<RecyclerViewSelectCityHolder> {
 	private static final String TAG = "RecyclerViewSelectCityAdapter";
 
-	private MvpDelegate<?> mMvpDelegate;
-
 	private List<City> mCityList = Arrays.asList(City.values());
 
+	private LayoutInflater mInflater;
 	private SelectCityListener mCityListener;
 
-	public RecyclerViewSelectCityAdapter(SelectCityListener cityListener) {
+	public RecyclerViewSelectCityAdapter(LayoutInflater inflater, SelectCityListener cityListener) {
+		mInflater = inflater;
 		mCityListener = cityListener;
 	}
 
 	@Override
 	public RecyclerViewSelectCityHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-		return null;
+		return new RecyclerViewSelectCityHolder(mInflater.inflate(R.layout.item_select_city, parent, false));
 	}
 
 	@Override

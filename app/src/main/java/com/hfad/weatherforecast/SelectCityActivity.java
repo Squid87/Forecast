@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
+import com.hfad.weatherforecast.Fragment.SelectCityFragment;
 import com.hfad.weatherforecast.model.City;
 
 public class SelectCityActivity extends MvpAppCompatActivity implements SelectCityListener {
@@ -25,7 +26,6 @@ public class SelectCityActivity extends MvpAppCompatActivity implements SelectCi
 
 	@Override
 	public void onSelectCity(City city) {
-		//start main activity
 		Intent mainIntent = new Intent(this, MainActivity.class);
 		startActivity(mainIntent);
 	}

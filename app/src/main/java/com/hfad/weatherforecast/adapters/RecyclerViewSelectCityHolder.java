@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 public class RecyclerViewSelectCityHolder extends RecyclerView.ViewHolder {
 
 	@BindView(R.id.item_select_city_choice_city)
-	private	TextView mSelectCityTextView;
+	public 	TextView mSelectCityTextView;
 
 	public RecyclerViewSelectCityHolder(View itemView) {
 		super(itemView);

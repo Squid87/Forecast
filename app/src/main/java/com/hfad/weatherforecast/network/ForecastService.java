@@ -5,34 +5,31 @@ import android.content.Context;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by Илья on 31.10.2016.
- */
 
 public class ForecastService {
 
 	@SuppressWarnings("FieldCanBeLocal")
 	private String BASE_URL = "http://pogoda.ngs.ru";
 	private Retrofit mRetrofit;
-	private ForecastService mForecastService;
+	private static ForecastService sInstance;
 
 
-	public ForecastService(Context context) {
+	private ForecastService(Context context) {
 		mRetrofit = new Retrofit.Builder()
 				.baseUrl(BASE_URL)
 				.addConverterFactory(GsonConverterFactory.create())
 				.build();
 	}
 
-	public ForecastService getInstance(Context context) {
-		if (mForecastService == null) {
+	public static ForecastService getInstance(Context context) {
+		if (sInstance == null) {
 			synchronized (ForecastService.class) {
-				if (mForecastService == null) {
-					mForecastService = new ForecastService(context);
+				if (sInstance == null) {
+					sInstance = new ForecastService(context);
 				}
 			}
 		}
-		return mForecastService;
+		return sInstance;
 	}
 
 	public ForecastApiInterface createForecaastApi(){

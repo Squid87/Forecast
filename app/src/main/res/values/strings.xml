@@ -10,5 +10,8 @@
 	<string name="Skip">Пропустить</string>
 	<string name="city_name_omsk">Омск</string>
 	<string name="city_name_tomsk">Томск</string>
+	<string name="Forecasts">Прогноз на 4 дня</string>
+	<string name="Current">Прогноз на данное время</string>
+	<string name="Barnaul">Барнаул</string>
 
 </resources>

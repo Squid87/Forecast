@@ -10,7 +10,7 @@ import com.hfad.weatherforecast.mvp.View.SplashView;
 
 @InjectViewState
 public class SplashPresenter extends MvpPresenter<SplashView> {
-	private static final int SPLASH_SHOW_TIME_SECONDS = 1;
+	private static final int SPLASH_SHOW_TIME_SECONDS = 3;
 
 	@Override
 	protected void onFirstViewAttach() {

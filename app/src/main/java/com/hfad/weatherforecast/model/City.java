@@ -7,6 +7,10 @@ import com.hfad.weatherforecast.R;
 
 
 public enum City {
+
+	@SerializedName("barnaul")
+	BARNAUL(R.string.Barnaul),
+
 	@SerializedName("omsk")
 	OMSK(R.string.city_name_omsk),
 

@@ -10,4 +10,11 @@ public class Astronomy {
 	@SerializedName("sunset")
 	public String mSunset;
 
+	public String getSunrise() {
+		return mSunrise;
+	}
+
+	public String getSunset() {
+		return mSunset;
+	}
 }

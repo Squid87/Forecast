@@ -1,4 +1,4 @@
-package com.hfad.weatherforecast;
+package com.hfad.weatherforecast.Fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,8 +12,9 @@ import android.widget.Button;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.MvpView;
 import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.hfad.weatherforecast.R;
+import com.hfad.weatherforecast.SelectCityListener;
 import com.hfad.weatherforecast.adapters.RecyclerViewSelectCityAdapter;
-import com.hfad.weatherforecast.model.City;
 import com.hfad.weatherforecast.mvp.SelectCityPresenter;
 import com.hfad.weatherforecast.mvp.View.SelectCityView;
 
@@ -55,16 +56,13 @@ public class SelectCityFragment extends MvpAppCompatFragment implements MvpView,
 		super.onViewCreated(view, savedInstanceState);
 		ButterKnife.bind(this, view);
 
-
-		mSelectCityRecyclerViewAdapter = new RecyclerViewSelectCityAdapter(new SelectCityListener() {
-			@Override
-			public void onSelectCity(City city) {
-				mPresenter.userSelectCity(city);
-				if (mSelectCityListener != null) {
-					mSelectCityListener.onSelectCity(city);
-				}
-			}
-		});
+		mSelectCityRecyclerViewAdapter = new RecyclerViewSelectCityAdapter(LayoutInflater.from(getContext()),
+				city -> {
+					mPresenter.userSelectCity(city);
+					if (mSelectCityListener != null) {
+						mSelectCityListener.onSelectCity(city);
+					}
+				});
 
 		mSelectCityRecyclerView.setAdapter(mSelectCityRecyclerViewAdapter);
 		mSelectCityRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

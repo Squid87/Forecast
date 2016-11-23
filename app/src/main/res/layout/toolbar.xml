@@ -8,5 +8,4 @@
 	android:background="@color/colorPrimary"
 	app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
 	app:title="Weather"
-	app:titleTextColor="@color/cardview_light_background"/>
-
+	app:titleTextColor="@color/cardview_light_background" />
