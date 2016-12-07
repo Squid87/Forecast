@@ -1,28 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:design="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:orientation="vertical">
 
+	<include layout="@layout/toolbar" />
+	<!--android:id="@+id/include" />-->
 
-		<include layout="@layout/toolbar"/>
-
-		<FrameLayout
-			android:id="@+id/activity_main_forecast_container"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent">
-		</FrameLayout>
-
-	<android.support.design.widget.BottomNavigationView
-		android:id="@+id/activity_main_forecast_bottom_navigation"
+	<FrameLayout
+		android:id="@+id/activity_main_forecast_container"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_alignParentBottom="true"
-		app:itemBackground="@color/colorPrimaryDark"
-		app:itemIconTint="@color/colorPrimary"
-		app:itemTextColor="@color/cardview_light_background"
-		app:menu="@menu/menu_navigation"/>
+		android:layout_marginLeft="8dp"
+		android:layout_marginRight="8dp">
 
-</RelativeLayout>
+		<!--<Switch-->
+		<!--android:id="@+id/activity_main_forecast_switch"-->
+		<!--android:layout_width="wrap_content"-->
+		<!--android:layout_height="wrap_content"-->
+		<!--android:layout_marginTop="15dp"-->
+		<!--android:layout_marginLeft="150dp"/>-->
+
+	</FrameLayout>
+
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<android.support.design.widget.BottomNavigationView
+			android:id="@+id/activity_main_forecast_bottom_navigation"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			app:itemBackground="@color/colorPrimaryDark"
+			app:itemIconTint="@color/colorPrimary"
+			app:itemTextColor="@color/cardview_light_background"
+			app:menu="@menu/menu_navigation" />
+
+	</RelativeLayout>
+</LinearLayout>

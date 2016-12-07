@@ -1,4 +1,4 @@
-package com.hfad.weatherforecast.Fragment;
+package com.hfad.weatherforecast.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

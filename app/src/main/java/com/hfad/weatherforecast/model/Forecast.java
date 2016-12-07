@@ -2,7 +2,7 @@ package com.hfad.weatherforecast.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Forecasts {
+public class Forecast {
 
 	@SerializedName("date")
 	public String mDate;
@@ -44,8 +44,8 @@ public class Forecasts {
 	@SerializedName("magnetic_status")
 	public String mMagneticStatus;
 
-	@SerializedName("water")
-	public String mWater;
+	//@SerializedName("water")
+	//public String mWater;
 
 	@SerializedName("astronomy")
 	public Astronomy mAstronomy;

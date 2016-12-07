@@ -6,12 +6,12 @@ import java.util.List;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.hfad.weatherforecast.model.Forecasts;
+import com.hfad.weatherforecast.model.Forecast;
 
 
 public class RecyclerViewCurrentForecastAdapter extends RecyclerView.Adapter<RecyclerViewCurrentForecastHolder> {
 
-	private List<Forecasts> weather = new ArrayList<>();
+	private List<Forecast> weather = new ArrayList<>();
 
 	@Override
 	public RecyclerViewCurrentForecastHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -28,7 +28,7 @@ public class RecyclerViewCurrentForecastAdapter extends RecyclerView.Adapter<Rec
 		return weather.size();
 	}
 
-	public void setCollection(List<Forecasts> collection) {
+	public void setCollection(List<Forecast> collection) {
 		weather.addAll(collection);
 		notifyDataSetChanged();
 	}

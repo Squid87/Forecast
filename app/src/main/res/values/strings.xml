@@ -13,5 +13,13 @@
 	<string name="Forecasts">Прогноз на 4 дня</string>
 	<string name="Current">Прогноз на данное время</string>
 	<string name="Barnaul">Барнаул</string>
+	<string name="sunset">Закат</string>
+	<string name="rising">Восход</string>
+	<string name="pressure">Давление</string>
+	<string name="pressuredimens">мм р.с</string>
+	<string name="humidity">Влажность</string>
+	<string name="persentdimens">%</string>
+	<string name="wind">Ветер</string>
+	<string name="winddimens">м/с</string>
 
 </resources>

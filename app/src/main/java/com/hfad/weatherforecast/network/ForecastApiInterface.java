@@ -14,5 +14,5 @@ public interface ForecastApiInterface {
 	Call<ForecastResponse> getForecasts(@Query("city") City city);
 
 	@GET("api/v1/forecasts/current")
-	Call<ForecastResponse> getCurrenForecast(@Query("city") City city);
+	Call<ForecastResponse> getCurrentForecast(@Query("city") City city);
 }

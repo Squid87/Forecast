@@ -2,19 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="vertical"
-	android:weightSum="1">
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
 
-
-	<android.support.v7.widget.CardView
-		android:id="@+id/item_activity_current_weather_card_view"
-		android:layout_width="360dp"
-		android:layout_height="210dp"
-		android:layout_gravity="center"
-		android:layout_marginBottom="5dp"
-		android:layout_marginTop="15dp"
-		android:layout_weight="0.92">
 
 		<RelativeLayout
 			android:layout_width="match_parent"
@@ -38,6 +28,7 @@
 				android:layout_marginLeft="8dp"
 				android:layout_marginTop="8dp"
 				android:textSize="20sp"
+				android:text="@string/rising"
 				tools:text="Восход" />
 
 			<TextView
@@ -54,10 +45,10 @@
 			<TextView
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_centerHorizontal="true"
-				android:layout_marginLeft="8dp"
+				android:layout_marginLeft="165dp"
 				android:layout_marginTop="30dp"
 				android:textSize="20sp"
+				android:text="@string/sunset"
 				tools:text="Закат" />
 
 			<TextView
@@ -77,6 +68,14 @@
 			android:layout_width="match_parent"
 			android:layout_height="match_parent">
 
+			<TextView
+				android:id="@+id/item_activity_current_weather_city"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:textSize="40sp"
+				tools:text="Barnaul"/>
+
 			<ImageView
 				android:id="@+id/item_activity_current_weather_image_image_view"
 				android:layout_width="@dimen/weather_type_icon_size"
@@ -85,6 +84,22 @@
 				android:layout_marginTop="100dp"
 				tools:src="@mipmap/ic_launcher" />
 
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal">
+
+				<ProgressBar
+					android:id="@+id/item_activity_current_weather_progress_bar"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="150dp"
+					android:layout_gravity="center"
+					android:visibility="invisible"
+					android:indeterminate="true"/>
+			</LinearLayout>
+
+
 			<TextView
 				android:id="@+id/item_activity_current_weather_degree"
 				android:layout_width="wrap_content"
@@ -92,14 +107,15 @@
 				android:layout_marginLeft="220dp"
 				android:layout_marginTop="170dp"
 				android:textSize="40sp"
-				tools:text="+15" />
+				tools:text="+15,0" />
 
 			<TextView
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_marginLeft="290dp"
+				android:layout_marginLeft="320dp"
 				android:layout_marginTop="170dp"
 				android:textSize="40sp"
+				android:text="C"
 				tools:text="C" />
 
 
@@ -109,6 +125,7 @@
 				android:layout_marginLeft="8dp"
 				android:layout_marginTop="300dp"
 				android:textSize="27sp"
+				android:text="@string/pressure"
 				tools:text="Давление" />
 
 			<TextView
@@ -126,6 +143,7 @@
 				android:layout_marginLeft="250dp"
 				android:layout_marginTop="300dp"
 				android:textSize="27sp"
+				android:text="@string/pressuredimens"
 				tools:text="мм р.с." />
 
 			<TextView
@@ -134,6 +152,7 @@
 				android:layout_marginLeft="8dp"
 				android:layout_marginTop="350dp"
 				android:textSize="27sp"
+				android:text="@string/humidity"
 				tools:text="Влажность" />
 
 			<TextView
@@ -151,6 +170,7 @@
 				android:layout_marginLeft="250dp"
 				android:layout_marginTop="350dp"
 				android:textSize="27sp"
+				android:text="@string/persentdimens"
 				tools:text="%" />
 
 			<TextView
@@ -159,6 +179,7 @@
 				android:layout_marginLeft="8dp"
 				android:layout_marginTop="400dp"
 				android:textSize="27sp"
+				android:text="@string/wind"
 				tools:text="Ветер" />
 
 			<TextView
@@ -185,24 +206,20 @@
 				android:layout_marginLeft="250dp"
 				android:layout_marginTop="400dp"
 				android:textSize="27sp"
-				tools:text="м/с" />
-
-
-
+				android:text="@string/winddimens"
+				tools:text="м/с"/>
 
 
 			<TextView
 				android:id="@+id/item_activity_current_weather_cloud"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:layout_centerHorizontal="true"
 				android:layout_marginLeft="50dp"
-				android:layout_marginTop="480dp"
+				android:layout_marginTop="450dp"
 				android:textSize="20sp"
 				tools:text="пасмурно небольшой дождь" />
 
 		</RelativeLayout>
-
-
-	</android.support.v7.widget.CardView>
 
 </LinearLayout>

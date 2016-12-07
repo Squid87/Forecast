@@ -9,13 +9,13 @@ import com.hfad.weatherforecast.R;
 public enum City {
 
 	@SerializedName("barnaul")
-	BARNAUL(R.string.Barnaul),
+	barnaul(R.string.Barnaul),
 
 	@SerializedName("omsk")
-	OMSK(R.string.city_name_omsk),
+	omsk(R.string.city_name_omsk),
 
 	@SerializedName("tomsk")
-	TOMSK(R.string.city_name_tomsk);
+	tomsk(R.string.city_name_tomsk);
 
 	@StringRes
 	private int mCityNameRes;

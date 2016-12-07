@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hfad.weatherforecast.R;
-import com.hfad.weatherforecast.model.Forecasts;
+import com.hfad.weatherforecast.model.Forecast;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -43,9 +43,9 @@ public class RecyclerViewCurrentForecastHolder extends RecyclerView.ViewHolder {
 		ButterKnife.bind(this, itemView);
 	}
 
-	public void bind(Forecasts forecasts) {
+	public void bind(Forecast forecast) {
 			Picasso.with(itemView.getContext())
-					.load("http:" + forecasts.getIconPath())
+					.load("http:" + forecast.getIconPath())
 					.placeholder(R.mipmap.ic_launcher)
 					.into(mIconImageView);
 
@@ -53,11 +53,11 @@ public class RecyclerViewCurrentForecastHolder extends RecyclerView.ViewHolder {
 		//mTextViewData.setText(String.valueOf(model.getDate()));
 		//mCityTextView.setText("Barnaul");
 
-		mCurrentDegreeTextView.setText(String.valueOf(forecasts.getTemperature()));
-		mParssureTextView.setText(String.valueOf(forecasts.getPressure()));
-		mCurrentHumidityTextView.setText(String.valueOf(forecasts.getHumidity()));
-		mCurrentWindDirectionTextView.setText(String.valueOf(forecasts.getWind().getDirection()));
-		mCurrentWindSpeedTextView.setText(String.valueOf(forecasts.getWind().getSpeed()));
-		mCurrentCloudTextView.setText(String.valueOf(forecasts.getCloud().getTitle()));
+		mCurrentDegreeTextView.setText(String.valueOf(forecast.getTemperature()));
+		mParssureTextView.setText(String.valueOf(forecast.getPressure()));
+		mCurrentHumidityTextView.setText(String.valueOf(forecast.getHumidity()));
+		mCurrentWindDirectionTextView.setText(String.valueOf(forecast.getWind().getDirection()));
+		mCurrentWindSpeedTextView.setText(String.valueOf(forecast.getWind().getSpeed()));
+		mCurrentCloudTextView.setText(String.valueOf(forecast.getCloud().getTitle()));
 	}
 }

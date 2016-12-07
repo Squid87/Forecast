@@ -9,13 +9,13 @@ import com.google.gson.annotations.SerializedName;
 public class ForecastResponse {
 
 	@SerializedName("forecasts")
-	public List<Forecasts> mForecasts =new ArrayList<>();
+	public List<Forecast> mForecasts =new ArrayList<>();
 
-	public List<Forecasts> getForecasts() {
+	public List<Forecast> getForecasts() {
 		return mForecasts;
 	}
 
-	public void setForecasts(List<Forecasts> forecasts) {
+	public void setForecasts(List<Forecast> forecasts) {
 		mForecasts = forecasts;
 	}
 }

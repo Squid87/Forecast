@@ -6,7 +6,7 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
 
 @StateStrategyType(SkipStrategy.class)
-public interface MainScreenView extends MvpView {
+public interface MainView extends MvpView {
 
 	void startSelectCity();
 

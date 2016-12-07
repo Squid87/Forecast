@@ -15,4 +15,8 @@ public class Direction {
 
 	@SerializedName("value")
 	public String mValue;
+
+	public String getTitleShort() {
+		return mTitleShort;
+	}
 }
