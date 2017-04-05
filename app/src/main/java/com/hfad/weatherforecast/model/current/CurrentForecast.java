@@ -1,14 +1,22 @@
-package com.hfad.weatherforecast.model;
+package com.hfad.weatherforecast.model.current;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Forecast {
+public class CurrentForecast {
+
+	private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM", Locale.getDefault());
 
 	@SerializedName("date")
-	public String mDate;
+	public Date mDate;
+
+	private String data;
 
 	@SerializedName("temperature")
-	public double mTemperature;
+	public int mTemperature;
 
 	@SerializedName("feel_like_temperature")
 	public double mFeelLikeTemperature;
@@ -68,19 +76,11 @@ public class Forecast {
 		return mPressure;
 	}
 
-	public String getDate() {
-		return mDate;
-	}
-
-	public void setDate(String date) {
-		mDate = date;
-	}
-
-	public double getTemperature() {
+	public int getTemperature() {
 		return mTemperature;
 	}
 
-	public void setTemperature(double temperature) {
+	public void setTemperature(int temperature) {
 		mTemperature = temperature;
 	}
 
@@ -98,5 +98,10 @@ public class Forecast {
 
 	public void setIconPath(String iconPath) {
 		mIconPath = iconPath;
+	}
+
+	public String getDate() {
+		data = SIMPLE_DATE_FORMAT.format(mDate);
+		return data;
 	}
 }

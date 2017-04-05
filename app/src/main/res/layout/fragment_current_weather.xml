@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
+	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:orientation="vertical">
 
@@ -107,16 +107,7 @@
 				android:layout_marginLeft="220dp"
 				android:layout_marginTop="170dp"
 				android:textSize="40sp"
-				tools:text="+15,0" />
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="320dp"
-				android:layout_marginTop="170dp"
-				android:textSize="40sp"
-				android:text="C"
-				tools:text="C" />
+				tools:text="+15" />
 
 
 			<TextView
@@ -136,15 +127,7 @@
 				android:layout_marginTop="300dp"
 				android:textSize="27sp"
 				tools:text="747" />
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="250dp"
-				android:layout_marginTop="300dp"
-				android:textSize="27sp"
-				android:text="@string/pressuredimens"
-				tools:text="мм р.с." />
+			
 
 			<TextView
 				android:layout_width="wrap_content"
@@ -163,15 +146,6 @@
 				android:layout_marginTop="350dp"
 				android:textSize="27sp"
 				tools:text="86" />
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="250dp"
-				android:layout_marginTop="350dp"
-				android:textSize="27sp"
-				android:text="@string/persentdimens"
-				tools:text="%" />
 
 			<TextView
 				android:layout_width="wrap_content"
@@ -199,15 +173,6 @@
 				android:layout_marginTop="400dp"
 				android:textSize="27sp"
 				tools:text="2" />
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="250dp"
-				android:layout_marginTop="400dp"
-				android:textSize="27sp"
-				android:text="@string/winddimens"
-				tools:text="м/с"/>
 
 
 			<TextView

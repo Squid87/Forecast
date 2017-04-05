@@ -1,6 +1,6 @@
 package com.hfad.weatherforecast;
 
-import com.hfad.weatherforecast.model.City;
+import com.hfad.weatherforecast.model.current.City;
 
 
 

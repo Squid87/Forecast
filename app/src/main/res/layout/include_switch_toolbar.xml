@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/toolbar_actionbar"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="?android:actionBarSize"
+	android:background="@color/colorPrimary"
+	app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+	tools:showIn="@layout/activity_main_forecast">
+	
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		
+		<Switch
+			android:id="@+id/activity_main_forecast_switch"
+			android:layout_alignParentRight="true"
+			android:text="прогноз на неделю"
+			android:textSize="18dp"
+			android:switchMinWidth="45dp"
+			android:layout_height="60dp"
+			android:layout_width="200dp"/>
+	</RelativeLayout>
+</android.support.v7.widget.Toolbar>

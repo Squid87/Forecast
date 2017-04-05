@@ -7,6 +7,7 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
 @StateStrategyType(SkipStrategy.class)
 public interface SplashView extends MvpView {
+
 	void startForecastScreen();
 	void startSelectCityScreen();
 }

@@ -1,4 +1,4 @@
-package com.hfad.weatherforecast.model;
+package com.hfad.weatherforecast.model.current;
 
 import android.support.annotation.StringRes;
 
@@ -14,8 +14,8 @@ public enum City {
 	@SerializedName("omsk")
 	omsk(R.string.city_name_omsk),
 
-	@SerializedName("tomsk")
-	tomsk(R.string.city_name_tomsk);
+	@SerializedName("sheregesh")
+	sheregesh(R.string.city_name_sheregesh);
 
 	@StringRes
 	private int mCityNameRes;

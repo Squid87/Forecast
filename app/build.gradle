@@ -3,7 +3,7 @@ apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '24.0.2'
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.hfad.weatherforecast"
         minSdkVersion 15
@@ -30,7 +30,7 @@ dependencies {
     final BUTTERKNIFE_VERSION = '8.4.0'
     final PICASSO_VERSION = '2.5.2'
     final RETROFIT_VERSION = '2.1.0'
-    final MOXY_VERSION = '1.1.1'
+    final MOXY_VERSION = '1.4.6'
 
     /* support libraries */
     compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"

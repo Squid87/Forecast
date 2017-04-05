@@ -1,7 +1,7 @@
 <manifest package="com.hfad.weatherforecast"
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.INTERNET"/>
 
 	<application
 		android:name=".WeatherApplication"
@@ -16,8 +16,9 @@
 				<action android:name="android.intent.action.MAIN" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".MainActivity" />
-		<activity android:name=".SelectCityActivity" />
-
+		<activity android:name=".MainActivity"
+			android:screenOrientation="portrait"/>
+		<activity android:name=".SelectCityActivity"
+			android:screenOrientation="portrait"/>
 	</application>
 </manifest>

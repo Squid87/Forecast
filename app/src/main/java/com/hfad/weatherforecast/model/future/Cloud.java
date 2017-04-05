@@ -1,16 +1,16 @@
-package com.hfad.weatherforecast.model;
+package com.hfad.weatherforecast.model.future;
 
 import com.google.gson.annotations.SerializedName;
 
 public class Cloud {
 
 	@SerializedName("title")
-	public String mTitle;
+	private String title;
 
 	@SerializedName("value")
-	public String mValue;
+	private String value;
 
 	public String getTitle() {
-		return mTitle;
+		return title;
 	}
 }

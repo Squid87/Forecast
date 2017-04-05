@@ -1,16 +1,20 @@
 package com.hfad.weatherforecast;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.internal.BottomNavigationItemView;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Switch;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.hfad.weatherforecast.fragment.AboutFragment;
 import com.hfad.weatherforecast.fragment.CurrentForecastFragment;
+import com.hfad.weatherforecast.fragment.FutureForecastsFragment;
 import com.hfad.weatherforecast.fragment.SelectCityFragment;
 import com.hfad.weatherforecast.mvp.MainPresenter;
 import com.hfad.weatherforecast.mvp.View.MainView;
@@ -31,8 +35,11 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
 	@BindView(R.id.menu_navigation_home)
 	BottomNavigationItemView mBottomNavigationItemView;
 
-//	@BindView(R.id.activity_main_forecast_switch)
-//	Switch mSwitch;
+	@BindView(R.id.activity_main_forecast_bottom_navigation)
+	BottomNavigationView mBottomNavigationView;
+
+	@BindView(R.id.activity_main_forecast_switch)
+	Switch mSwitch;
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,25 +47,32 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
 		setContentView(R.layout.activity_main_forecast);
 		initBind();
 		setSupportActionBar(mToolbar);
-	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.menu_toolbar, menu);
-		return true;
-	}
+		//Переключение между экранами
+		mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+			@Override
+			public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+				switch (item.getItemId()) {
+					case R.id.menu_navigation_home:
+						mMainPresenter.startCurrentForecast();
+						break;
+					case R.id.menu_navigation_settings:
+						mMainPresenter.startSelectCity();
+						break;
+					case R.id.menu_navigation_about:
+						mMainPresenter.startAbout();
+						break;
+				}
+				return false;
+			}
+		});
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-
-		switch (item.getItemId()) {
-			case R.id.menu_toolbar_current_forecast:
-				Log.d(LOG_TAG, "Onclick");
-				mMainPresenter.startCurrentForecast();
-				return true;
-			default:
-				return super.onOptionsItemSelected(item);
-		}
+		mSwitch.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				mMainPresenter.switchWork(mSwitch.isChecked());
+			}
+		});
 	}
 
 
@@ -68,29 +82,51 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
 
 	@Override
 	public void startSelectCity() {
+
 		getSupportFragmentManager().beginTransaction()
-				.add(R.id.activity_main_forecast_container, new SelectCityFragment())
+				.replace(R.id.activity_main_forecast_container, new SelectCityFragment())
 				.commit();
+
 		getSupportFragmentManager().executePendingTransactions();
 	}
 
 	@Override
 	public void startAbout() {
-
+		getSupportFragmentManager().beginTransaction()
+				.replace(R.id.activity_main_forecast_container, new AboutFragment())
+				.commit();
+		getSupportFragmentManager().executePendingTransactions();
 	}
 
 	@Override
 	public void currentForecast() {
 
 		getSupportFragmentManager().beginTransaction()
-				.add(R.id.activity_main_forecast_container, new CurrentForecastFragment())
+				.replace(R.id.activity_main_forecast_container, new CurrentForecastFragment())
 				.commit();
 		getSupportFragmentManager().executePendingTransactions();
 
 	}
 
 	@Override
+	public void hideSwitch() {
+		mSwitch.setVisibility(View.GONE);
+	}
+
+	@Override
+	public void showSwitch() {
+		mSwitch.setChecked(false);
+		mSwitch.setVisibility(View.VISIBLE);
+	}
+
+	@Override
 	public void weaklyForecast() {
+
+		getSupportFragmentManager().beginTransaction()
+				.replace(R.id.activity_main_forecast_container, new FutureForecastsFragment())
+				.commit();
+		getSupportFragmentManager().executePendingTransactions();
+
 	}
 
 }

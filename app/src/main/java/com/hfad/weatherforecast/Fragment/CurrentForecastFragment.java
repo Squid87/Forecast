@@ -14,8 +14,8 @@ import android.widget.Toast;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.hfad.weatherforecast.R;
-import com.hfad.weatherforecast.adapters.Pref;
-import com.hfad.weatherforecast.model.Forecast;
+import com.hfad.weatherforecast.model.CityManager;
+import com.hfad.weatherforecast.model.current.CurrentForecast;
 import com.hfad.weatherforecast.mvp.CurrentForecastPresenter;
 import com.hfad.weatherforecast.mvp.View.CurrentForecastView;
 import com.squareup.picasso.Picasso;
@@ -78,24 +78,22 @@ public class CurrentForecastFragment extends MvpAppCompatFragment implements Cur
 
 	}
 
-	private void bind(Forecast forecast) {
+	private void bind(CurrentForecast currentForecast) {
 		Picasso.with(getActivity())
-				.load("http:" + forecast.getIconPath())
+				.load("http:" + currentForecast.getIconPath())
 				.placeholder(R.mipmap.ic_launcher)
 				.into(mIconImageView);
-		Pref mPref = new Pref();
-		//mDate.setText(String.valueOf(model.getDate()));
-		//mCityTextView.setText("Barnaul");
 
-		mCityTextView.setText(String.valueOf(mPref.loadCity()));
-		mRisingTimeTextView.setText(String.valueOf(forecast.mAstronomy.getSunrise()));
-		mSunSetTimeTextView.setText(String.valueOf(forecast.mAstronomy.getSunset()));
-		mCurrentDegreeTextView.setText(String.valueOf(forecast.getTemperature()));
-		mParssureTextView.setText(String.valueOf(forecast.getPressure()));
-		mCurrentHumidityTextView.setText(String.valueOf(forecast.getHumidity()));
-		mCurrentWindDirectionTextView.setText(String.valueOf(forecast.getWind().getDirection().getTitleShort()));
-		mCurrentWindSpeedTextView.setText(String.valueOf(forecast.getWind().getSpeed()));
-		mCurrentCloudTextView.setText(String.valueOf(forecast.getCloud().getTitle()));
+		mDate.setText(String.valueOf(currentForecast.getDate()));
+		mCityTextView.setText(CityManager.getInstance().getSelectedCity().getCityNameRes());
+		mRisingTimeTextView.setText(String.valueOf(currentForecast.mAstronomy.getSunrise()));
+		mSunSetTimeTextView.setText(String.valueOf(currentForecast.mAstronomy.getSunset()));
+		mCurrentDegreeTextView.setText(String.valueOf(currentForecast.getTemperature()) + "°" + "C");
+		mParssureTextView.setText(String.valueOf(currentForecast.getPressure()) + " мм.р.с");
+		mCurrentHumidityTextView.setText(String.valueOf(currentForecast.getHumidity()) + " %");
+		mCurrentWindDirectionTextView.setText(String.valueOf(currentForecast.getWind().getDirection().getTitleShort()));
+		mCurrentWindSpeedTextView.setText(String.valueOf(currentForecast.getWind().getSpeed()) + " м/с");
+		mCurrentCloudTextView.setText(String.valueOf(currentForecast.getCloud().getTitle()));
 	}
 
 	@Override
@@ -110,8 +108,8 @@ public class CurrentForecastFragment extends MvpAppCompatFragment implements Cur
 
 
 	@Override
-	public void showForecasts(Forecast forecast) {
-		bind(forecast);
+	public void showForecasts(CurrentForecast currentForecast) {
+		bind(currentForecast);
 	}
 
 	@Override
@@ -119,7 +117,7 @@ public class CurrentForecastFragment extends MvpAppCompatFragment implements Cur
 		Toast toast = Toast.makeText(getContext(),
 				"Проверьте соединение с интернетом!", Toast.LENGTH_SHORT);
 		toast.show();
-		toast.setGravity(Gravity.CENTER,0,0);
+		toast.setGravity(Gravity.CENTER, 0, 0);
 	}
 }
 

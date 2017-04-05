@@ -9,7 +9,7 @@
 	<string name="Choice">Выбрать</string>
 	<string name="Skip">Пропустить</string>
 	<string name="city_name_omsk">Омск</string>
-	<string name="city_name_tomsk">Томск</string>
+	<string name="city_name_sheregesh">Шерегеш</string>
 	<string name="Forecasts">Прогноз на 4 дня</string>
 	<string name="Current">Прогноз на данное время</string>
 	<string name="Barnaul">Барнаул</string>
@@ -21,5 +21,10 @@
 	<string name="persentdimens">%</string>
 	<string name="wind">Ветер</string>
 	<string name="winddimens">м/с</string>
+	<string name="night">Ночь</string>
+	<string name="morning">Утро</string>
+	<string name="day">День</string>
+	<string name="evening">Вечер</string>
+	<string name="c">C</string>
 
 </resources>

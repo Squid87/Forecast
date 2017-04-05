@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.hfad.weatherforecast.R;
 import com.hfad.weatherforecast.SelectCityListener;
-import com.hfad.weatherforecast.model.City;
+import com.hfad.weatherforecast.model.current.City;
 
 
 public class RecyclerViewSelectCityAdapter extends RecyclerView.Adapter<RecyclerViewSelectCityHolder> {

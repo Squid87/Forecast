@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.MvpView;
@@ -28,9 +27,6 @@ public class SelectCityFragment extends MvpAppCompatFragment implements MvpView,
 
 	@BindView(R.id.fragment_select_city_recycler_view)
 	RecyclerView mSelectCityRecyclerView;
-
-	@BindView(R.id.fragment_select_city_button_skip)
-	Button mSkipButton;
 
 	RecyclerViewSelectCityAdapter mSelectCityRecyclerViewAdapter;
 
@@ -67,4 +63,5 @@ public class SelectCityFragment extends MvpAppCompatFragment implements MvpView,
 		mSelectCityRecyclerView.setAdapter(mSelectCityRecyclerViewAdapter);
 		mSelectCityRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 	}
+
 }

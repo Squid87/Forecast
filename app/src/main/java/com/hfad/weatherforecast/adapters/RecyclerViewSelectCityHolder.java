@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.hfad.weatherforecast.R;
-import com.hfad.weatherforecast.model.City;
+import com.hfad.weatherforecast.model.current.City;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

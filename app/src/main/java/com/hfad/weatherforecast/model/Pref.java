@@ -1,4 +1,4 @@
-package com.hfad.weatherforecast.adapters;
+package com.hfad.weatherforecast.model;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.hfad.weatherforecast.WeatherApplication;
-import com.hfad.weatherforecast.model.City;
+import com.hfad.weatherforecast.model.current.City;
 
 
 public class Pref {
