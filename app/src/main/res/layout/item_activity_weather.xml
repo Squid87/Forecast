@@ -170,32 +170,32 @@
 			
 			<ImageView
 				android:id="@+id/item_activity_weather_image_view_00"
-				android:layout_width="@dimen/mergin_leaft_for_item_weather"
-				android:layout_height="@dimen/mergin_hight_for_item_weather"
+				android:layout_width="@dimen/marginLeftForItemWeather"
+				android:layout_height="@dimen/marginHighForItemWeather"
 				android:layout_marginLeft="20dp"
 				android:layout_marginTop="120dp"
 				tools:src="@mipmap/ic_launcher" />
 			
 			<ImageView
 				android:id="@+id/item_activity_weather_image_view_06"
-				android:layout_width="@dimen/mergin_leaft_for_item_weather"
-				android:layout_height="@dimen/mergin_hight_for_item_weather"
+				android:layout_width="@dimen/marginLeftForItemWeather"
+				android:layout_height="@dimen/marginHighForItemWeather"
 				android:layout_marginLeft="110dp"
 				android:layout_marginTop="120dp"
 				tools:src="@mipmap/ic_launcher" />
 			
 			<ImageView
 				android:id="@+id/item_activity_weather_image_view_12"
-				android:layout_width="@dimen/mergin_leaft_for_item_weather"
-				android:layout_height="@dimen/mergin_hight_for_item_weather"
+				android:layout_width="@dimen/marginLeftForItemWeather"
+				android:layout_height="@dimen/marginHighForItemWeather"
 				android:layout_marginLeft="198dp"
 				android:layout_marginTop="120dp"
 				tools:src="@mipmap/ic_launcher" />
 			
 			<ImageView
 				android:id="@+id/item_activity_weather_image_view_18"
-				android:layout_width="@dimen/mergin_leaft_for_item_weather"
-				android:layout_height="@dimen/mergin_hight_for_item_weather"
+				android:layout_width="@dimen/marginLeftForItemWeather"
+				android:layout_height="@dimen/marginHighForItemWeather"
 				android:layout_marginLeft="288dp"
 				android:layout_marginTop="120dp"
 				tools:src="@mipmap/ic_launcher" />

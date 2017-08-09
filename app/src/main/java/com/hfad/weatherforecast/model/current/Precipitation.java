@@ -11,5 +11,5 @@ public class Precipitation {
 	public String mValue;
 
 	@SerializedName("day_value")
-	public int mDayValue;
+	public double mDayValue;
 }

@@ -24,10 +24,10 @@ import butterknife.ButterKnife;
 
 
 public class MainActivity extends MvpAppCompatActivity implements MainView {
+	private static final String LOG_TAG = "Click";
+
 	@InjectPresenter
 	MainPresenter mMainPresenter;
-
-	private static final String LOG_TAG = "Click";
 
 	@BindView(R.id.toolbar_actionbar)
 	Toolbar mToolbar;
@@ -67,12 +67,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
 			}
 		});
 
-		mSwitch.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				mMainPresenter.switchWork(mSwitch.isChecked());
-			}
-		});
+		mSwitch.setOnClickListener(view -> mMainPresenter.switchWork(mSwitch.isChecked()));
 	}
 
 
@@ -91,7 +86,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
 	}
 
 	@Override
-	public void startAbout() {
+	public void openAbout() {
 		getSupportFragmentManager().beginTransaction()
 				.replace(R.id.activity_main_forecast_container, new AboutFragment())
 				.commit();
@@ -99,7 +94,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
 	}
 
 	@Override
-	public void currentForecast() {
+	public void openCurrentForecast() {
 
 		getSupportFragmentManager().beginTransaction()
 				.replace(R.id.activity_main_forecast_container, new CurrentForecastFragment())
@@ -120,7 +115,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
 	}
 
 	@Override
-	public void weaklyForecast() {
+	public void openWeaklyForecast() {
 
 		getSupportFragmentManager().beginTransaction()
 				.replace(R.id.activity_main_forecast_container, new FutureForecastsFragment())

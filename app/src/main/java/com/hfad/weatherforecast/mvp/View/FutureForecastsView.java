@@ -13,6 +13,5 @@ public interface FutureForecastsView extends MvpView {
 
 	void showProgress();
 	void hideProgress();
-	void showError();
 	void showForecasts(List<FutureForecast> futureForecasts);
 }

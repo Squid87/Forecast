@@ -9,11 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
-import com.arellomobile.mvp.MvpView;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.hfad.weatherforecast.R;
-import com.hfad.weatherforecast.SelectCityListener;
 import com.hfad.weatherforecast.adapters.RecyclerViewSelectCityAdapter;
+import com.hfad.weatherforecast.model.City;
 import com.hfad.weatherforecast.mvp.SelectCityPresenter;
 import com.hfad.weatherforecast.mvp.View.SelectCityView;
 
@@ -21,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class SelectCityFragment extends MvpAppCompatFragment implements MvpView, SelectCityView {
+public class SelectCityFragment extends MvpAppCompatFragment implements SelectCityView {
 	@InjectPresenter
 	SelectCityPresenter mPresenter;
 
@@ -29,17 +28,6 @@ public class SelectCityFragment extends MvpAppCompatFragment implements MvpView,
 	RecyclerView mSelectCityRecyclerView;
 
 	RecyclerViewSelectCityAdapter mSelectCityRecyclerViewAdapter;
-
-	private SelectCityListener mSelectCityListener;
-
-	public void setOnCityListener(SelectCityListener selectCityListener) {
-		mSelectCityListener = selectCityListener;
-	}
-
-	@Override
-	public void onCreate(@Nullable Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-	}
 
 	@Nullable
 	@Override
@@ -53,15 +41,14 @@ public class SelectCityFragment extends MvpAppCompatFragment implements MvpView,
 		ButterKnife.bind(this, view);
 
 		mSelectCityRecyclerViewAdapter = new RecyclerViewSelectCityAdapter(LayoutInflater.from(getContext()),
-				city -> {
-					mPresenter.userSelectCity(city);
-					if (mSelectCityListener != null) {
-						mSelectCityListener.onSelectCity(city);
-					}
-				});
+				city -> mPresenter.userSelectCity(city));
 
 		mSelectCityRecyclerView.setAdapter(mSelectCityRecyclerViewAdapter);
 		mSelectCityRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 	}
 
+	@Override
+	public void onSelectedCity(City city) {
+		//pass
+	}
 }

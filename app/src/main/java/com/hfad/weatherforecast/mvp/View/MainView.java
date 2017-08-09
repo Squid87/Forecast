@@ -1,22 +1,22 @@
 package com.hfad.weatherforecast.mvp.View;
 
 import com.arellomobile.mvp.MvpView;
-import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy;
-import com.arellomobile.mvp.viewstate.strategy.SkipStrategy;
+import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy;
+import com.arellomobile.mvp.viewstate.strategy.SingleStateStrategy;
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
 
-@StateStrategyType(AddToEndSingleStrategy.class)
+@StateStrategyType(SingleStateStrategy.class)
 public interface MainView extends MvpView {
 
-	@StateStrategyType(SkipStrategy.class)//лучше oneexecution
+	@StateStrategyType(OneExecutionStateStrategy.class)
 	void startSelectCity();
 
-	void startAbout();
+	void openAbout();
 
-	void currentForecast();
+	void openCurrentForecast();
 
-	void weaklyForecast();
+	void openWeaklyForecast();
 
 	void hideSwitch();
 

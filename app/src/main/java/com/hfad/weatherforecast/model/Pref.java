@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.hfad.weatherforecast.WeatherApplication;
-import com.hfad.weatherforecast.model.current.City;
 
 
 public class Pref {

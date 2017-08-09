@@ -16,13 +16,11 @@ public class RecyclerViewFutureForecastsAdapter extends RecyclerView.Adapter<Rec
 
 	private List<FutureForecast> mForecasts = new ArrayList<>();
 
-
 	@Override
 	public RecyclerViewFutureForecastsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 		View mInflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_activity_weather, parent, false);
 		return new RecyclerViewFutureForecastsHolder(mInflate);
 	}
-
 
 	@Override
 	public void onBindViewHolder(RecyclerViewFutureForecastsHolder holder, int position) {

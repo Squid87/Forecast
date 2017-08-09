@@ -5,10 +5,10 @@ import com.google.gson.annotations.SerializedName;
 public class Astronomy {
 
 	@SerializedName("sunrise")
-	public String mSunrise;
+	private String mSunrise;
 
 	@SerializedName("sunset")
-	public String mSunset;
+	private String mSunset;
 
 	public String getSunrise() {
 		return mSunrise;

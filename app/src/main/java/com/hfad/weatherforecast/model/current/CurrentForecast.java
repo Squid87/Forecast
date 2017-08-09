@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import com.google.gson.annotations.SerializedName;
+import com.hfad.weatherforecast.model.Cloud;
 
 public class CurrentForecast {
 
@@ -16,7 +17,7 @@ public class CurrentForecast {
 	private String data;
 
 	@SerializedName("temperature")
-	public int mTemperature;
+	private double mTemperature;
 
 	@SerializedName("feel_like_temperature")
 	public double mFeelLikeTemperature;
@@ -25,29 +26,19 @@ public class CurrentForecast {
 	public int mTemperatureTrend;
 
 	@SerializedName("pressure")
-	public int mPressure;
+	private int mPressure;
 
 	@SerializedName("humidity")
-	public int mHumidity;
+	private int mHumidity;
 
 	@SerializedName("wind")
-	public Wind mWind;
-
-	public Links getLinks() {
-		return mLinks;
-	}
-
-	public Wind getWind() {
-
-		return mWind;
-	}
+	private Wind mWind;
 
 	@SerializedName("cloud")
-	public Cloud mCloud;
+	private Cloud mCloud;
 
 	@SerializedName("precipitation")
 	public Precipitation mPrecipitation;
-
 
 	@SerializedName("magnetic_status")
 	public String mMagneticStatus;
@@ -76,7 +67,7 @@ public class CurrentForecast {
 		return mPressure;
 	}
 
-	public int getTemperature() {
+	public double getTemperature() {
 		return mTemperature;
 	}
 
@@ -103,5 +94,14 @@ public class CurrentForecast {
 	public String getDate() {
 		data = SIMPLE_DATE_FORMAT.format(mDate);
 		return data;
+	}
+
+	public Links getLinks() {
+		return mLinks;
+	}
+
+	public Wind getWind() {
+
+		return mWind;
 	}
 }

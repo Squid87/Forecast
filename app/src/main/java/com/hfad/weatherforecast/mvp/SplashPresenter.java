@@ -9,7 +9,6 @@ import com.hfad.weatherforecast.mvp.View.SplashView;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 
 @InjectViewState
@@ -20,11 +19,10 @@ public class SplashPresenter extends MvpPresenter<SplashView> {
 	protected void onFirstViewAttach() {
 		super.onFirstViewAttach();
 
-		Observable.just("")
-				.subscribeOn(Schedulers.computation())
-				.delay(SPLASH_SHOW_TIME_SECONDS, TimeUnit.SECONDS)
+		Observable.timer(1,TimeUnit.SECONDS)
 				.observeOn(AndroidSchedulers.mainThread())
-				.subscribe(s -> startNextScreen());
+				.subscribe(s->startNextScreen());
+
 	}
 
 	private void startNextScreen() {

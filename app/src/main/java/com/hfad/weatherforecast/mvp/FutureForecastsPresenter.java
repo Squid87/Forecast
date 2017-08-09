@@ -22,8 +22,8 @@ import rx.schedulers.Schedulers;
 @InjectViewState
 public class FutureForecastsPresenter extends MvpPresenter<FutureForecastsView> {
 
-	ForecastService mForecastService = ForecastService.getInstance(WeatherApplication.getInstance());
 	private static final String LOG_TAG = "Click";
+	ForecastService mForecastService = ForecastService.getInstance(WeatherApplication.getInstance());
 
 	@Override
 	protected void onFirstViewAttach() {
@@ -43,7 +43,6 @@ public class FutureForecastsPresenter extends MvpPresenter<FutureForecastsView> 
 					public void onError(Throwable e) {
 
 						getViewState().hideProgress();
-						getViewState().showError();
 						//загружаем данные из БД
 						e.printStackTrace();
 

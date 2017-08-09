@@ -5,12 +5,11 @@ import java.util.List;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import com.hfad.weatherforecast.R;
 import com.hfad.weatherforecast.SelectCityListener;
-import com.hfad.weatherforecast.model.current.City;
+import com.hfad.weatherforecast.model.City;
 
 
 public class RecyclerViewSelectCityAdapter extends RecyclerView.Adapter<RecyclerViewSelectCityHolder> {
@@ -34,13 +33,7 @@ public class RecyclerViewSelectCityAdapter extends RecyclerView.Adapter<Recycler
 	@Override
 	public void onBindViewHolder(RecyclerViewSelectCityHolder holder, final int position) {
 		holder.bind(mCityList.get(position));
-
-		holder.itemView.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				mCityListener.onSelectCity(mCityList.get(position));
-			}
-		});
+		holder.itemView.setOnClickListener(view -> mCityListener.onSelectCity(mCityList.get(position)));
 	}
 
 	@Override

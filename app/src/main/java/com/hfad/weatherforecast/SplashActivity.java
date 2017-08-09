@@ -31,5 +31,5 @@ public class SplashActivity extends MvpAppCompatActivity implements SplashView {
 		Intent mainIntent = new Intent(this, SelectCityActivity.class);
 		startActivity(mainIntent);
 		finish();
-	}
+}
 }

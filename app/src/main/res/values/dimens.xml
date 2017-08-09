@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<dimen name="merginLeaft">180dp</dimen>
+	<dimen name="marginLeft">180dp</dimen>
 	<dimen name="weather_type_icon_size">180dp</dimen>
 
-	<dimen name="mergin_leaft_for_item_weather">50dp</dimen>
-	<dimen name="mergin_hight_for_item_weather">50dp</dimen>
+	<dimen name="marginLeftForItemWeather">50dp</dimen>
+	<dimen name="marginHighForItemWeather">50dp</dimen>
 </resources>

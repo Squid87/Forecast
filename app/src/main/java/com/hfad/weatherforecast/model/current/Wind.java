@@ -5,10 +5,10 @@ import com.google.gson.annotations.SerializedName;
 public class Wind {
 
 	@SerializedName("speed")
-	public int mSpeed;
+	private int mSpeed;
 
 	@SerializedName("direction")
-	public Direction mDirection;
+	private Direction mDirection;
 
 	public int getSpeed() {
 		return mSpeed;

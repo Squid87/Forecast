@@ -11,7 +11,7 @@ public class Direction {
 	public String mTitleLetter;
 
 	@SerializedName("title_short")
-	public String mTitleShort;
+	private String mTitleShort;
 
 	@SerializedName("value")
 	public String mValue;

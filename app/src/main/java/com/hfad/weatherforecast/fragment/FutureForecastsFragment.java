@@ -68,11 +68,6 @@ public class FutureForecastsFragment extends MvpAppCompatFragment implements Fut
 	}
 
 	@Override
-	public void showError() {
-
-	}
-
-	@Override
 	public void showForecasts(List<FutureForecast> futureForecasts) {
 		mRecyclerViewFutureForecastsAdapter.setFutureForecasts(futureForecasts);
 

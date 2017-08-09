@@ -1,6 +1,7 @@
 package com.hfad.weatherforecast.model.future;
 
 import com.google.gson.annotations.SerializedName;
+import com.hfad.weatherforecast.model.Cloud;
 
 public class Hours {
 
@@ -19,15 +20,6 @@ public class Hours {
 	@SerializedName("wind")
 	private Wind wind;
 
-	public Temperature getTemperature() {
-		return temperature;
-	}
-
-	public Cloud getCloud() {
-
-		return cloud;
-	}
-
 	@SerializedName("cloud")
 	private Cloud cloud;
 
@@ -42,5 +34,14 @@ public class Hours {
 
 	public String getIconPath() {
 		return iconPath;
+	}
+
+	public Temperature getTemperature() {
+		return temperature;
+	}
+
+	public Cloud getCloud() {
+
+		return cloud;
 	}
 }

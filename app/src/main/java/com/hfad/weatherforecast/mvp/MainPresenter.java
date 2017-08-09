@@ -18,7 +18,7 @@ public class MainPresenter extends MvpPresenter<MainView> {
 		mCityUpdatesSubscription = CityManager.getInstance().subscribeToCityUpdates()
 				.observeOn(AndroidSchedulers.mainThread())
 				.subscribe(city -> {
-					getViewState().currentForecast();
+					getViewState().openCurrentForecast();
 					getViewState().showSwitch();
 				});
 	}
@@ -32,17 +32,17 @@ public class MainPresenter extends MvpPresenter<MainView> {
 	@Override
 	protected void onFirstViewAttach() {
 		super.onFirstViewAttach();
-		getViewState().currentForecast();
+		getViewState().openCurrentForecast();
 	}
 
 	public void startCurrentForecast() {
 
-		getViewState().currentForecast();
+		getViewState().openCurrentForecast();
 		getViewState().showSwitch();
 	}
 
 	public void startAbout() {
-		getViewState().startAbout();
+		getViewState().openAbout();
 		getViewState().hideSwitch();
 	}
 
@@ -53,9 +53,9 @@ public class MainPresenter extends MvpPresenter<MainView> {
 
 	public void switchWork(Boolean isOn) {
 		if (isOn) {
-			getViewState().weaklyForecast();
+			getViewState().openWeaklyForecast();
 		} else {
-			getViewState().currentForecast();
+			getViewState().openCurrentForecast();
 		}
 	}
 }

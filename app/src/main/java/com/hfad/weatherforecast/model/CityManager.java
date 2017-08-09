@@ -3,8 +3,6 @@ package com.hfad.weatherforecast.model;
 
 import android.support.annotation.Nullable;
 
-import com.hfad.weatherforecast.model.current.City;
-
 import rx.Observable;
 import rx.subjects.PublishSubject;
 import rx.subjects.Subject;

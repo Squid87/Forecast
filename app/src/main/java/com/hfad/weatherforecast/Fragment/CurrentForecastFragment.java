@@ -51,7 +51,7 @@ public class CurrentForecastFragment extends MvpAppCompatFragment implements Cur
 	ImageView mIconImageView;
 
 	@BindView(R.id.item_activity_current_weather_pressure)
-	TextView mParssureTextView;
+	TextView mPressureTextView;
 
 	@BindView(R.id.item_activity_current_weather_rising_time)
 	TextView mRisingTimeTextView;
@@ -78,24 +78,6 @@ public class CurrentForecastFragment extends MvpAppCompatFragment implements Cur
 
 	}
 
-	private void bind(CurrentForecast currentForecast) {
-		Picasso.with(getActivity())
-				.load("http:" + currentForecast.getIconPath())
-				.placeholder(R.mipmap.ic_launcher)
-				.into(mIconImageView);
-
-		mDate.setText(String.valueOf(currentForecast.getDate()));
-		mCityTextView.setText(CityManager.getInstance().getSelectedCity().getCityNameRes());
-		mRisingTimeTextView.setText(String.valueOf(currentForecast.mAstronomy.getSunrise()));
-		mSunSetTimeTextView.setText(String.valueOf(currentForecast.mAstronomy.getSunset()));
-		mCurrentDegreeTextView.setText(String.valueOf(currentForecast.getTemperature()) + "°" + "C");
-		mParssureTextView.setText(String.valueOf(currentForecast.getPressure()) + " мм.р.с");
-		mCurrentHumidityTextView.setText(String.valueOf(currentForecast.getHumidity()) + " %");
-		mCurrentWindDirectionTextView.setText(String.valueOf(currentForecast.getWind().getDirection().getTitleShort()));
-		mCurrentWindSpeedTextView.setText(String.valueOf(currentForecast.getWind().getSpeed()) + " м/с");
-		mCurrentCloudTextView.setText(String.valueOf(currentForecast.getCloud().getTitle()));
-	}
-
 	@Override
 	public void showProgress() {
 		mCurrentForecastProgressBar.setVisibility(ProgressBar.VISIBLE);
@@ -109,7 +91,21 @@ public class CurrentForecastFragment extends MvpAppCompatFragment implements Cur
 
 	@Override
 	public void showForecasts(CurrentForecast currentForecast) {
-		bind(currentForecast);
+		Picasso.with(getActivity())
+				.load("http:" + currentForecast.getIconPath())
+				.placeholder(R.mipmap.ic_launcher)
+				.into(mIconImageView);
+
+		mDate.setText(String.valueOf(currentForecast.getDate()));
+		mCityTextView.setText(CityManager.getInstance().getSelectedCity().getCityNameRes());
+		mRisingTimeTextView.setText(currentForecast.mAstronomy.getSunrise());
+		mSunSetTimeTextView.setText(currentForecast.mAstronomy.getSunset());
+		mCurrentDegreeTextView.setText(String.valueOf(currentForecast.getTemperature()) + "°" + "C");
+		mPressureTextView.setText(String.valueOf(currentForecast.getPressure()) + " мм.р.с");
+		mCurrentHumidityTextView.setText(String.valueOf(currentForecast.getHumidity()) + " %");
+		mCurrentWindDirectionTextView.setText(currentForecast.getWind().getDirection().getTitleShort());
+		mCurrentWindSpeedTextView.setText(String.valueOf(currentForecast.getWind().getSpeed()) + " м/с");
+		mCurrentCloudTextView.setText(currentForecast.getCloud().getTitle());;
 	}
 
 	@Override

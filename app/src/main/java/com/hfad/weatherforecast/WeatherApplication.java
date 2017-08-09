@@ -1,9 +1,9 @@
 package com.hfad.weatherforecast;
 
-import com.arellomobile.mvp.MvpApplication;
+import android.app.Application;
 
 
-public class WeatherApplication extends MvpApplication {
+public class WeatherApplication extends Application {
 	private static WeatherApplication sInstance;
 
 	public static WeatherApplication getInstance() {

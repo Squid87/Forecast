@@ -1,6 +1,6 @@
 package com.hfad.weatherforecast.network;
 
-import com.hfad.weatherforecast.model.current.City;
+import com.hfad.weatherforecast.model.City;
 import com.hfad.weatherforecast.model.current.ForecastResponse;
 import com.hfad.weatherforecast.model.future.FutureForecastsResponse;
 
