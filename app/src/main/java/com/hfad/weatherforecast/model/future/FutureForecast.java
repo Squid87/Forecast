@@ -6,6 +6,9 @@ import java.util.Date;
 import java.util.Locale;
 
 import com.google.gson.annotations.SerializedName;
+import com.hfad.weatherforecast.model.GeoData.Astronomy;
+import com.hfad.weatherforecast.model.GeoData.Hours;
+import com.hfad.weatherforecast.model.GeoData.Links;
 
 public class FutureForecast {
 

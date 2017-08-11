@@ -1,7 +1,6 @@
-package com.hfad.weatherforecast.model.future;
+package com.hfad.weatherforecast.model.GeoData;
 
 import com.google.gson.annotations.SerializedName;
-import com.hfad.weatherforecast.model.Cloud;
 
 public class Hours {
 
@@ -10,15 +9,6 @@ public class Hours {
 
 	@SerializedName("temperature")
 	private Temperature temperature;
-
-	@SerializedName("pressure")
-	private Pressure pressure;
-
-	@SerializedName("humidity")
-	private Humidity humidity;
-
-	@SerializedName("wind")
-	private Wind wind;
 
 	@SerializedName("cloud")
 	private Cloud cloud;
@@ -40,8 +30,5 @@ public class Hours {
 		return temperature;
 	}
 
-	public Cloud getCloud() {
-
-		return cloud;
-	}
+	public Cloud getCloud() { return cloud;	}
 }

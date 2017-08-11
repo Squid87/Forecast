@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.hfad.weatherforecast.R;
 import com.hfad.weatherforecast.model.future.FutureForecast;
-import com.hfad.weatherforecast.model.future.Hours;
+import com.hfad.weatherforecast.model.GeoData.Hours;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;

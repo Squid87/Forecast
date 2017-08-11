@@ -1,8 +1,8 @@
-package com.hfad.weatherforecast.model.future;
+package com.hfad.weatherforecast.model.GeoData;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Pressure {
+public class Temperature {
 
 	@SerializedName("min")
 	private int min;
@@ -12,4 +12,8 @@ public class Pressure {
 
 	@SerializedName("avg")
 	private int avg;
+
+	public int getAvg() {
+		return avg;
+	}
 }

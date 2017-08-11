@@ -1,4 +1,4 @@
-package com.hfad.weatherforecast.model.future;
+package com.hfad.weatherforecast.model.GeoData;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -45,7 +45,7 @@ dependencies {
     compile "io.reactivex:rxjava:1.1.6"
     compile 'io.reactivex:rxandroid:1.2.1'
 
-    /* retrifit */
+    /* retrofit */
     compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
     compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
     compile "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"

@@ -5,7 +5,11 @@ import java.util.Date;
 import java.util.Locale;
 
 import com.google.gson.annotations.SerializedName;
-import com.hfad.weatherforecast.model.Cloud;
+import com.hfad.weatherforecast.model.GeoData.Astronomy;
+import com.hfad.weatherforecast.model.GeoData.Cloud;
+import com.hfad.weatherforecast.model.GeoData.Links;
+import com.hfad.weatherforecast.model.GeoData.Precipitation;
+import com.hfad.weatherforecast.model.GeoData.Wind;
 
 public class CurrentForecast {
 
@@ -18,12 +22,6 @@ public class CurrentForecast {
 
 	@SerializedName("temperature")
 	private double mTemperature;
-
-	@SerializedName("feel_like_temperature")
-	public double mFeelLikeTemperature;
-
-	@SerializedName("temperature_trend")
-	public int mTemperatureTrend;
 
 	@SerializedName("pressure")
 	private int mPressure;
@@ -40,17 +38,8 @@ public class CurrentForecast {
 	@SerializedName("precipitation")
 	public Precipitation mPrecipitation;
 
-	@SerializedName("magnetic_status")
-	public String mMagneticStatus;
-
-	//@SerializedName("water")
-	//public String mWater;
-
 	@SerializedName("astronomy")
 	public Astronomy mAstronomy;
-
-	@SerializedName("source")
-	public String mSource;
 
 	@SerializedName("icon_path")
 	public String mIconPath;
@@ -62,25 +51,14 @@ public class CurrentForecast {
 		return mHumidity;
 	}
 
-	public int getPressure() {
-
-		return mPressure;
-	}
+	public int getPressure() { return mPressure; }
 
 	public double getTemperature() {
 		return mTemperature;
 	}
 
-	public void setTemperature(int temperature) {
-		mTemperature = temperature;
-	}
-
 	public Cloud getCloud() {
 		return mCloud;
-	}
-
-	public void setCloud(Cloud cloud) {
-		mCloud = cloud;
 	}
 
 	public String getIconPath() {
@@ -100,8 +78,5 @@ public class CurrentForecast {
 		return mLinks;
 	}
 
-	public Wind getWind() {
-
-		return mWind;
-	}
+	public Wind getWind() {	return mWind; }
 }
