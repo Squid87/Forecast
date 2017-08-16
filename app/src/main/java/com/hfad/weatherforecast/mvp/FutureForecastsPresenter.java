@@ -8,6 +8,7 @@ import android.util.Log;
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.hfad.weatherforecast.WeatherApplication;
+import com.hfad.weatherforecast.database.DataBaseService;
 import com.hfad.weatherforecast.model.CityManager;
 import com.hfad.weatherforecast.model.future.FutureForecastsResponse;
 import com.hfad.weatherforecast.mvp.View.FutureForecastsView;
@@ -24,6 +25,7 @@ public class FutureForecastsPresenter extends MvpPresenter<FutureForecastsView> 
 
 	private static final String LOG_TAG = "Click";
 	ForecastService mForecastService = ForecastService.getInstance(WeatherApplication.getInstance());
+	DataBaseService mDataBaseService;
 
 	@Override
 	protected void onFirstViewAttach() {
