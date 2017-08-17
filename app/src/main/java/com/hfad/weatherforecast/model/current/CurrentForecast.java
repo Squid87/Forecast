@@ -1,5 +1,8 @@
 package com.hfad.weatherforecast.model.current;
 
+import android.database.sqlite.SQLiteDatabase;
+
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -9,74 +12,106 @@ import com.hfad.weatherforecast.model.GeoData.Astronomy;
 import com.hfad.weatherforecast.model.GeoData.Cloud;
 import com.hfad.weatherforecast.model.GeoData.Links;
 import com.hfad.weatherforecast.model.GeoData.Precipitation;
+import com.hfad.weatherforecast.model.GeoData.Temperature;
 import com.hfad.weatherforecast.model.GeoData.Wind;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.support.ConnectionSource;
+import com.j256.ormlite.table.DatabaseTable;
+import com.j256.ormlite.table.TableUtils;
 
+@DatabaseTable(tableName = CurrentForecast.TABLE_NAME)
 public class CurrentForecast {
 
-	private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM", Locale.getDefault());
+    public static final String TABLE_NAME = "currentforecast";
 
-	@SerializedName("date")
-	public Date mDate;
+    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM", Locale.getDefault());
 
-	private String data;
+    private static final String COLUMN_ID = "_id";
+    private static final String COLUMN_DATE = "date";
+    private static final String COLUMN_TEMPERATURE = "temperature" ;
+    private static final String COLUMN_PRESSURE = "pressure";
+    private static final String COLUMN_HUMIDITY = "humidity";
+    private static final String COLUMN_CLOUD = "cloud";
 
-	@SerializedName("temperature")
-	private double mTemperature;
+    @DatabaseField(columnName = COLUMN_ID, generatedId = true)
+    private int mId;
 
-	@SerializedName("pressure")
-	private int mPressure;
+    @DatabaseField(columnName = COLUMN_DATE)
+    @SerializedName("date")
+    public Date mDate;
 
-	@SerializedName("humidity")
-	private int mHumidity;
+    private String data;
 
-	@SerializedName("wind")
-	private Wind mWind;
+    @DatabaseField(columnName = COLUMN_TEMPERATURE)
+    @SerializedName("temperature")
+    private double mTemperature;
 
-	@SerializedName("cloud")
-	private Cloud mCloud;
+    @DatabaseField(columnName = COLUMN_PRESSURE)
+    @SerializedName("pressure")
+    private int mPressure;
 
-	@SerializedName("precipitation")
-	public Precipitation mPrecipitation;
 
-	@SerializedName("astronomy")
-	public Astronomy mAstronomy;
+    @DatabaseField(columnName = COLUMN_HUMIDITY)
+    @SerializedName("humidity")
+    private int mHumidity;
 
-	@SerializedName("icon_path")
-	public String mIconPath;
+    @SerializedName("wind")
+    private Wind mWind;
 
-	@SerializedName("links")
-	public Links mLinks;
+    @DatabaseField(columnName = COLUMN_CLOUD)
+    @SerializedName("cloud")
+    private Cloud mCloud;
 
-	public int getHumidity() {
-		return mHumidity;
-	}
+    @SerializedName("precipitation")
+    public Precipitation mPrecipitation;
 
-	public int getPressure() { return mPressure; }
+    @SerializedName("astronomy")
+    public Astronomy mAstronomy;
 
-	public double getTemperature() {
-		return mTemperature;
-	}
+    @SerializedName("icon_path")
+    public String mIconPath;
 
-	public Cloud getCloud() {
-		return mCloud;
-	}
+    @SerializedName("links")
+    public Links mLinks;
 
-	public String getIconPath() {
-		return mIconPath;
-	}
+    public int getHumidity() {
+        return mHumidity;
+    }
 
-	public void setIconPath(String iconPath) {
-		mIconPath = iconPath;
-	}
+    public int getPressure() {
+        return mPressure;
+    }
 
-	public String getDate() {
-		data = SIMPLE_DATE_FORMAT.format(mDate);
-		return data;
-	}
+    public double getTemperature() {
+        return mTemperature;
+    }
 
-	public Links getLinks() {
-		return mLinks;
-	}
+    public Cloud getCloud() {
+        return mCloud;
+    }
 
-	public Wind getWind() {	return mWind; }
+    public String getIconPath() {
+        return mIconPath;
+    }
+
+    public void setIconPath(String iconPath) {
+        mIconPath = iconPath;
+    }
+
+    public String getDate() {
+        data = SIMPLE_DATE_FORMAT.format(mDate);
+        return data;
+    }
+
+    public Links getLinks() {
+        return mLinks;
+    }
+
+    public Wind getWind() {
+        return mWind;
+    }
+
+    public static void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) throws SQLException {
+        TableUtils.createTable(connectionSource, CurrentForecast.class);
+    }
 }
