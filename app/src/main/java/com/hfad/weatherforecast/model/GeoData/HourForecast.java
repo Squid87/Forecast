@@ -9,12 +9,12 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.DatabaseTable;
 import com.j256.ormlite.table.TableUtils;
 
-@DatabaseTable(tableName = Hours.TABLE_NAME)
-public class Hours {
+@DatabaseTable(tableName = HourForecast.TABLE_NAME)
+public class HourForecast {
 
 	public static final String TABLE_NAME = "hours";
 	public static final String COLUMN_TEMPERATURE = "temperature";
-	private static final String COLUMN_CLOUD = "cloud" ;
+	private static final String COLUMN_CLOUD = "cloud";
 	private static final String COLUMN_ICON_PATH = "iconPath";
 	private static final String COLUMN_TIME = "time";
 	private static final String COLUMN_ID = "_id";
@@ -23,15 +23,15 @@ public class Hours {
 	@SerializedName("hour")
 	private int hour;
 
-	@DatabaseField(columnName = COLUMN_ID,generatedId = true)
+	@DatabaseField(columnName = COLUMN_ID, generatedId = true)
 	private int mID;
 
-	@DatabaseField(columnName = COLUMN_TEMPERATURE,foreign = true,foreignAutoCreate = true,foreignAutoRefresh = true)
+	@DatabaseField(columnName = COLUMN_TEMPERATURE, foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	@SerializedName("temperature")
 	private Temperature temperature;
 
 
-	@DatabaseField(columnName = COLUMN_CLOUD,foreign = true,foreignAutoCreate = true,foreignAutoRefresh = true)
+	@DatabaseField(columnName = COLUMN_CLOUD, foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	@SerializedName("cloud")
 	private Cloud cloud;
 
@@ -45,7 +45,7 @@ public class Hours {
 	@SerializedName("icon_path")
 	private String iconPath;
 
-	public Hours() {
+	public HourForecast() {
 	}
 
 	public String getIconPath() {
@@ -56,11 +56,15 @@ public class Hours {
 		return temperature;
 	}
 
-	public Cloud getCloud() { return cloud;	}
+	public Cloud getCloud() {
+		return cloud;
+	}
 
-	public int getID(){ return mID;}
+	public int getID() {
+		return mID;
+	}
 
 	public static void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) throws SQLException, java.sql.SQLException {
-		TableUtils.createTable(connectionSource,Hours.class);
+		TableUtils.createTable(connectionSource, HourForecast.class);
 	}
 }

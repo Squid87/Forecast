@@ -2,6 +2,9 @@ package com.hfad.weatherforecast.mvp;
 
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.util.Log;
 
@@ -10,6 +13,7 @@ import com.arellomobile.mvp.MvpPresenter;
 import com.hfad.weatherforecast.WeatherApplication;
 import com.hfad.weatherforecast.database.DataBaseService;
 import com.hfad.weatherforecast.model.CityManager;
+import com.hfad.weatherforecast.model.future.FutureForecast;
 import com.hfad.weatherforecast.model.future.FutureForecastsResponse;
 import com.hfad.weatherforecast.mvp.View.FutureForecastsView;
 import com.hfad.weatherforecast.network.ForecastService;
@@ -25,7 +29,8 @@ public class FutureForecastsPresenter extends MvpPresenter<FutureForecastsView> 
 
 	private static final String LOG_TAG = "Click";
 	ForecastService mForecastService = ForecastService.getInstance(WeatherApplication.getInstance());
-	DataBaseService mDataBaseService;
+	DataBaseService mDataBaseService = new DataBaseService(WeatherApplication.getInstance());
+	List<FutureForecast> mFutureForecasts = new ArrayList<>();
 
 	@Override
 	protected void onFirstViewAttach() {
@@ -54,6 +59,18 @@ public class FutureForecastsPresenter extends MvpPresenter<FutureForecastsView> 
 					public void onNext(Response<FutureForecastsResponse> response) {
 						FutureForecastsResponse forecastResponse = response.body();
 						getViewState().showForecasts(forecastResponse.getForecasts());
+//						mFutureForecasts.add(forecastResponse.getForecasts().get(0));
+//						mFutureForecasts.add(forecastResponse.getForecasts().get(1));
+						for(int i = 0; i < 10; i++){
+							mFutureForecasts.add(forecastResponse.getForecasts().get(i));
+						}
+
+						try {
+							mDataBaseService.saveFutureForecasts(mFutureForecasts);
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}
+
 						Log.d(LOG_TAG, "RX");
 
 					}

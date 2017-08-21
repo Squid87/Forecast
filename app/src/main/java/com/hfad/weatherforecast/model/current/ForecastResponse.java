@@ -9,13 +9,9 @@ import com.google.gson.annotations.SerializedName;
 public class ForecastResponse {
 
 	@SerializedName("forecasts")
-	public List<CurrentForecast> mCurrentForecasts =new ArrayList<>();
+	public List<CurrentForecast> mCurrentForecasts = new ArrayList<>();
 
-	public List<CurrentForecast> getCurrentForecasts() {
-		return mCurrentForecasts;
-	}
-
-	public void setCurrentForecasts(List<CurrentForecast> currentForecasts) {
-		mCurrentForecasts = currentForecasts;
+	public CurrentForecast getCurrentForecast() {
+		return mCurrentForecasts.get(0); //TODO проверка на то что список не пустой
 	}
 }

@@ -2,31 +2,40 @@ package com.hfad.weatherforecast.database;
 
 
 import java.sql.SQLException;
-import java.util.Collection;
 import java.util.List;
 
 import android.content.Context;
 
-import com.hfad.weatherforecast.model.GeoData.Hours;
-import com.hfad.weatherforecast.model.GeoData.Temperature;
+import com.hfad.weatherforecast.model.GeoData.HourForecast;
 import com.hfad.weatherforecast.model.current.CurrentForecast;
 import com.hfad.weatherforecast.model.future.FutureForecast;
 
 public class DataBaseService {
 
-    private DatabaseHelper mDatabaseHelper;
+	private DatabaseHelper mDatabaseHelper;
 
-    public DataBaseService(Context context) {
-        mDatabaseHelper = DatabaseHelper.getInstance(context);
-    }
+	public DataBaseService(Context context) {
+		mDatabaseHelper = DatabaseHelper.getInstance(context);
+	}
 
-    public void saveCurrentForecasts(CurrentForecast currentForecasts) throws SQLException {
-        mDatabaseHelper.getdCurrentForecastDao().create(currentForecasts);
-    }
+	public void saveCurrentForecast(CurrentForecast currentForecast) throws SQLException {
+		mDatabaseHelper.getCurrentForecastDao().createOrUpdate(currentForecast); //// TODO: сделать id нормальный
+	}
 
-    public void saveFutureDorecasts(List<FutureForecast> futureForecasts) throws SQLException {;
-        for (FutureForecast forecast : futureForecasts) {
-            //mDatabaseHelper.getdHoursDao().create((Collection<Hours>) forecast);
-        }
-    }
+
+	public void saveFutureForecasts(List<FutureForecast> futureForecasts) throws SQLException {
+
+		for (FutureForecast forecast : futureForecasts) {
+			mDatabaseHelper.getFutureForecastDao().createOrUpdate(forecast);
+
+			for (HourForecast hourForecast : forecast.getHours()) {
+				mDatabaseHelper.getHoursDao().create(hourForecast);
+
+//				Collection<HourForecast> hourForecasts = forecast.getHours();
+//				mDatabaseHelper.getHoursDao().assignEmptyForeignCollection(forecast, FutureForecast.COLUMN_HOURFORECAST);
+//				forecast.getHours().addAll(hourForecasts);
+//				mDatabaseHelper.getFutureForecastDao().update(forecast);
+			}
+		}
+	}
 }

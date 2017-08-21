@@ -3,15 +3,12 @@ package com.hfad.weatherforecast.mvp;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.hfad.weatherforecast.WeatherApplication;
 import com.hfad.weatherforecast.database.DataBaseService;
-import com.hfad.weatherforecast.database.DatabaseHelper;
 import com.hfad.weatherforecast.model.CityManager;
-import com.hfad.weatherforecast.model.current.CurrentForecast;
 import com.hfad.weatherforecast.model.current.ForecastResponse;
 import com.hfad.weatherforecast.mvp.View.CurrentForecastView;
 import com.hfad.weatherforecast.network.ForecastService;
@@ -27,13 +24,12 @@ public class CurrentForecastPresenter extends MvpPresenter<CurrentForecastView> 
 
 
 	ForecastService mForecastService = ForecastService.getInstance(WeatherApplication.getInstance());
-	DataBaseService mDataBaseService;
-	DatabaseHelper mDatabaseHelper;
+	DataBaseService mDataBaseService = new DataBaseService(WeatherApplication.getInstance());
+
 
 	@Override
 	protected void onFirstViewAttach() {
 		super.onFirstViewAttach();
-		mDatabaseHelper.getInstance(WeatherApplication.getInstance());
 
 		getViewState().showProgress();
 		Observable.fromCallable(this::requestWeathers)
@@ -58,9 +54,9 @@ public class CurrentForecastPresenter extends MvpPresenter<CurrentForecastView> 
 					@Override
 					public void onNext(Response<ForecastResponse> response) {
 						ForecastResponse forecastResponse = response.body();
-						getViewState().showForecasts(forecastResponse.getCurrentForecasts().get(0));
+						getViewState().showForecasts(forecastResponse.getCurrentForecast());
 						try {
-							mDataBaseService.saveCurrentForecasts(forecastResponse.getCurrentForecasts().get(0));
+							mDataBaseService.saveCurrentForecast(forecastResponse.getCurrentForecast());
 						} catch (SQLException e) {
 							e.printStackTrace();
 						}

@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.hfad.weatherforecast.R;
 import com.hfad.weatherforecast.model.future.FutureForecast;
-import com.hfad.weatherforecast.model.GeoData.Hours;
+import com.hfad.weatherforecast.model.GeoData.HourForecast;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -72,7 +72,7 @@ public class RecyclerViewFutureForecastsHolder extends RecyclerView.ViewHolder {
 
 	public void bind(FutureForecast model) {
 
-		List<Hours> hours = new ArrayList<>(model.getHours());
+		List<HourForecast> hours = new ArrayList<>(model.getHours());
 
 		Picasso.with(itemView.getContext())
 				.load("http:" + hours.get(0).getIconPath())
