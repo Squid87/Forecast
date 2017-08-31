@@ -4,6 +4,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.google.gson.annotations.SerializedName;
+import com.hfad.weatherforecast.model.future.FutureForecast;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.DatabaseTable;
@@ -18,6 +19,7 @@ public class HourForecast {
 	private static final String COLUMN_ICON_PATH = "iconPath";
 	private static final String COLUMN_TIME = "time";
 	private static final String COLUMN_ID = "_id";
+	private static final String COLUMN_PARENT_FUTURE_FORECAST = "column_parent_future_forecast";
 
 	@DatabaseField(columnName = COLUMN_TIME)
 	@SerializedName("hour")
@@ -25,6 +27,9 @@ public class HourForecast {
 
 	@DatabaseField(columnName = COLUMN_ID, generatedId = true)
 	private int mID;
+
+	@DatabaseField(columnName = COLUMN_PARENT_FUTURE_FORECAST,  foreign = true)
+	private FutureForecast parentFutureForecast;
 
 	@DatabaseField(columnName = COLUMN_TEMPERATURE, foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	@SerializedName("temperature")

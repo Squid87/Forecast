@@ -51,7 +51,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
-		Log.e(TAG, "creating DB" + DATABASE_NAME);
+		Log.d(TAG, "creating DB" + DATABASE_NAME);
 		try {
 			Astronomy.onCreate(database, connectionSource);
 			Cloud.onCreate(database, connectionSource);

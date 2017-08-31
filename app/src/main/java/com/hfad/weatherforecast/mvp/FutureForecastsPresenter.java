@@ -59,14 +59,10 @@ public class FutureForecastsPresenter extends MvpPresenter<FutureForecastsView> 
 					public void onNext(Response<FutureForecastsResponse> response) {
 						FutureForecastsResponse forecastResponse = response.body();
 						getViewState().showForecasts(forecastResponse.getForecasts());
-//						mFutureForecasts.add(forecastResponse.getForecasts().get(0));
-//						mFutureForecasts.add(forecastResponse.getForecasts().get(1));
-						for(int i = 0; i < 10; i++){
-							mFutureForecasts.add(forecastResponse.getForecasts().get(i));
-						}
+
 
 						try {
-							mDataBaseService.saveFutureForecasts(mFutureForecasts);
+							mDataBaseService.saveFutureForecasts(forecastResponse.getForecasts());
 						} catch (SQLException e) {
 							e.printStackTrace();
 						}

@@ -2,6 +2,7 @@ package com.hfad.weatherforecast.database;
 
 
 import java.sql.SQLException;
+import java.util.Collection;
 import java.util.List;
 
 import android.content.Context;
@@ -28,14 +29,10 @@ public class DataBaseService {
 		for (FutureForecast forecast : futureForecasts) {
 			mDatabaseHelper.getFutureForecastDao().createOrUpdate(forecast);
 
-			for (HourForecast hourForecast : forecast.getHours()) {
-				mDatabaseHelper.getHoursDao().create(hourForecast);
-
-//				Collection<HourForecast> hourForecasts = forecast.getHours();
-//				mDatabaseHelper.getHoursDao().assignEmptyForeignCollection(forecast, FutureForecast.COLUMN_HOURFORECAST);
-//				forecast.getHours().addAll(hourForecasts);
-//				mDatabaseHelper.getFutureForecastDao().update(forecast);
-			}
+			Collection<HourForecast> hourForecasts = forecast.getHours();
+			mDatabaseHelper.getFutureForecastDao().assignEmptyForeignCollection(forecast, FutureForecast.COLUMN_HOURFORECAST);
+			forecast.getHours().addAll(hourForecasts);
+			mDatabaseHelper.getFutureForecastDao().update(forecast);
 		}
 	}
 }
