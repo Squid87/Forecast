@@ -8,10 +8,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class FutureForecastsResponse {
 
-	@SerializedName("forecasts")
-	public List<FutureForecast> mForecast =new ArrayList<>();
+    @SerializedName("forecasts")
+    public List<FutureForecast> mForecast = new ArrayList<>();
 
-	public List<FutureForecast> getForecasts() {
-		return mForecast;
-	}
+    public List<FutureForecast> getForecasts() {
+        return mForecast;
+    }
 }

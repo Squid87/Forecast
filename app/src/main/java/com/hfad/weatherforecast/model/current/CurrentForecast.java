@@ -35,10 +35,10 @@ public class CurrentForecast {
 	private static final String COLUMN_ASTRONOMY = "astronomy";
 	private static final String COLUMN_ICONPATH = "iconpath";
 
-	@DatabaseField(columnName = COLUMN_ID, generatedId = true)
-	private int mId;
+//	@DatabaseField(columnName = COLUMN_ID, generatedId = true)
+//	private int mId;
 
-	@DatabaseField(columnName = COLUMN_DATE)
+	@DatabaseField(columnName = COLUMN_DATE, id = true)
 	@SerializedName("date")
 	public Date mDate;
 
@@ -71,12 +71,19 @@ public class CurrentForecast {
 	@SerializedName("astronomy")
 	public Astronomy mAstronomy;
 
+	@SerializedName("icon")
+	private String mIcon;
+
 	@DatabaseField(columnName = COLUMN_ICONPATH)
 	@SerializedName("icon_path")
 	public String mIconPath;
 
 	@SerializedName("links")
 	public Links mLinks;
+
+	public String getIcon(){
+		return mIcon;
+	}
 
 	public int getHumidity() {
 		return mHumidity;

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hfad.weatherforecast.R;
+import com.hfad.weatherforecast.fragment.SelectIcon;
 import com.hfad.weatherforecast.model.future.FutureForecast;
 import com.hfad.weatherforecast.model.GeoData.HourForecast;
 import com.squareup.picasso.Picasso;
@@ -71,26 +72,28 @@ public class RecyclerViewFutureForecastsHolder extends RecyclerView.ViewHolder {
 	}
 
 	public void bind(FutureForecast model) {
+		SelectIcon mSelectIcon = new SelectIcon();
 
 		List<HourForecast> hours = new ArrayList<>(model.getHours());
 
 		Picasso.with(itemView.getContext())
-				.load("http:" + hours.get(0).getIconPath())
+				.load(mSelectIcon.getSelectIconFutureForecast(hours.get(0)))
 				.placeholder(R.mipmap.ic_launcher)
 				.into(m00ImageView);
 
 		Picasso.with(itemView.getContext())
-				.load("http:" + hours.get(1).getIconPath())
+				.load(mSelectIcon.getSelectIconFutureForecast(hours.get(1)))
 				.placeholder(R.mipmap.ic_launcher)
 				.into(m06ImageView);
 
 		Picasso.with(itemView.getContext())
-				.load("http:" + hours.get(2).getIconPath())
+				.load(mSelectIcon.getSelectIconFutureForecast(hours.get(2)))
 				.placeholder(R.mipmap.ic_launcher)
 				.into(m12ImageView);
 
 		Picasso.with(itemView.getContext())
-				.load("http:" + hours.get(3).getIconPath())
+				.load(mSelectIcon.getSelectIconFutureForecast(hours.get(3)))
+				//.load("http:" + hours.get(3).getIconPath())
 				.placeholder(R.mipmap.ic_launcher)
 				.into(m18ImageView);
 

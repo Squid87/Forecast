@@ -14,12 +14,15 @@ import com.hfad.weatherforecast.model.future.FutureForecast;
 public class DataBaseService {
 
 	private DatabaseHelper mDatabaseHelper;
+	private String date;
 
 	public DataBaseService(Context context) {
 		mDatabaseHelper = DatabaseHelper.getInstance(context);
 	}
 
 	public void saveCurrentForecast(CurrentForecast currentForecast) throws SQLException {
+		//mDatabaseHelper.getCurrentForecastDao().queryForEq("date",currentForecast.getDate());
+
 		mDatabaseHelper.getCurrentForecastDao().createOrUpdate(currentForecast); //// TODO: сделать id нормальный
 	}
 

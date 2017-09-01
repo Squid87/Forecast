@@ -26,9 +26,9 @@ public class Cloud {
 	@SerializedName("value")
 	public String mValue;
 
-	public String getTitle() {
-		return mTitle;
-	}
+	public String getTitle() {return mTitle;}
+
+	public String getValue(){return mValue;}
 
 	public int getId() {return mId;}
 

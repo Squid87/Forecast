@@ -58,11 +58,14 @@ public class FutureForecastsPresenter extends MvpPresenter<FutureForecastsView> 
 					@Override
 					public void onNext(Response<FutureForecastsResponse> response) {
 						FutureForecastsResponse forecastResponse = response.body();
-						getViewState().showForecasts(forecastResponse.getForecasts());
-
+						mFutureForecasts.add(forecastResponse.getForecasts().get(0));
+						mFutureForecasts.add(forecastResponse.getForecasts().get(1));
+						mFutureForecasts.add(forecastResponse.getForecasts().get(2));
+						mFutureForecasts.add(forecastResponse.getForecasts().get(3));
+						getViewState().showForecasts(mFutureForecasts);
 
 						try {
-							mDataBaseService.saveFutureForecasts(forecastResponse.getForecasts());
+							mDataBaseService.saveFutureForecasts(mFutureForecasts);
 						} catch (SQLException e) {
 							e.printStackTrace();
 						}

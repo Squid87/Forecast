@@ -45,7 +45,7 @@ public class HourForecast {
 
 	@DatabaseField(columnName = COLUMN_ICON_PATH)
 	@SerializedName("icon")
-	private String icon;
+	private String mIcon;
 
 	@SerializedName("icon_path")
 	private String iconPath;
@@ -56,6 +56,8 @@ public class HourForecast {
 	public String getIconPath() {
 		return iconPath;
 	}
+
+	public String getIcon(){ return mIcon; }
 
 	public Temperature getTemperature() {
 		return temperature;

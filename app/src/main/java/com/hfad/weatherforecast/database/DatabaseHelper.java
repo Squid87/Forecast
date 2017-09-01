@@ -1,6 +1,7 @@
 package com.hfad.weatherforecast.database;
 
 import java.sql.SQLException;
+import java.util.Date;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -30,7 +31,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
 
 	private Dao<HourForecast, Integer> dHours;
-	private Dao<CurrentForecast, Integer> dCurrentForecast;
+	private Dao<CurrentForecast, Date> dCurrentForecast;
 	private Dao<FutureForecast, Integer> dFutureForecast;
 
 	public DatabaseHelper(Context context) {
@@ -86,7 +87,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 		return dHours;
 	}
 
-	public Dao<CurrentForecast, Integer> getCurrentForecastDao() throws SQLException {
+	public Dao<CurrentForecast, Date> getCurrentForecastDao() throws SQLException {
 		if (dCurrentForecast == null) {
 			dCurrentForecast = getDao(CurrentForecast.class);
 		}

@@ -29,7 +29,8 @@
 				android:layout_marginTop="8dp"
 				android:textSize="20sp"
 				android:text="@string/rising"
-				tools:text="Восход" />
+				tools:text="Восход"
+				android:id="@+id/textView" />
 
 			<TextView
 				android:id="@+id/item_activity_current_weather_rising_time"
@@ -45,11 +46,12 @@
 			<TextView
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_marginLeft="165dp"
-				android:layout_marginTop="30dp"
 				android:textSize="20sp"
 				android:text="@string/sunset"
-				tools:text="Закат" />
+				tools:text="Закат"
+				android:layout_alignLeft="@+id/textView"
+				android:layout_alignStart="@+id/textView"
+				android:layout_alignTop="@+id/item_activity_current_weather_sunset_time" />
 
 			<TextView
 				android:id="@+id/item_activity_current_weather_sunset_time"
