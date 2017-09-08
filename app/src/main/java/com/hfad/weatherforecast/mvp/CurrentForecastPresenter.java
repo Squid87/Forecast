@@ -3,6 +3,8 @@ package com.hfad.weatherforecast.mvp;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import com.arellomobile.mvp.InjectViewState;
@@ -28,6 +30,7 @@ public class CurrentForecastPresenter extends MvpPresenter<CurrentForecastView> 
 
     ForecastService mForecastService = ForecastService.getInstance(WeatherApplication.getInstance());
     DataBaseService mDataBaseService = new DataBaseService(WeatherApplication.getInstance());
+    List<CurrentForecast> mCurrentForecasts = new ArrayList<>();
 
 
     @Override
@@ -50,8 +53,11 @@ public class CurrentForecastPresenter extends MvpPresenter<CurrentForecastView> 
                         getViewState().hideProgress();
                         getViewState().showError();
                         //загружаем данные из БД
-                        e.printStackTrace();
-
+//                        try {
+//                            getViewState().showForecasts((CurrentForecast) mDataBaseService.getCurrentForecast());
+//                        } catch (SQLException e1) {
+//                            e1.printStackTrace();
+//                        }
                     }
 
                     @Override

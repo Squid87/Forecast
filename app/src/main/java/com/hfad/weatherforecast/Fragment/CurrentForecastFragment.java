@@ -97,11 +97,11 @@ public class CurrentForecastFragment extends MvpAppCompatFragment implements Cur
         SelectIcon mSelectIcon = new SelectIcon();
 
 
-            Picasso.with(getActivity())
-                    .load(mSelectIcon.getSelectIconCurrentForecast(currentForecast))
-                    //.load("http:" + currentForecast.getIconPath())
-                    .placeholder(R.mipmap.ic_launcher)
-                    .into(mIconImageView);
+        Picasso.with(getActivity())
+                .load(mSelectIcon.getSelectIconCurrentForecast(currentForecast))
+                //.load("http:" + currentForecast.getIconPath())
+                .placeholder(R.mipmap.ic_launcher)
+                .into(mIconImageView);
 
         mDate.setText(String.valueOf(currentForecast.getDate()));
         mCityTextView.setText(CityManager.getInstance().getSelectedCity().getCityNameRes());
