@@ -25,8 +25,8 @@ public class HourForecast {
 	@SerializedName("hour")
 	private int hour;
 
-	@DatabaseField(columnName = COLUMN_ID, generatedId = true)
-	private int mID;
+	@DatabaseField(columnName = COLUMN_ID, id = true)
+	private String mID;
 
 	@DatabaseField(columnName = COLUMN_PARENT_FUTURE_FORECAST,  foreign = true)
 	private FutureForecast parentFutureForecast;
@@ -50,6 +50,10 @@ public class HourForecast {
 	@SerializedName("icon_path")
 	private String iconPath;
 
+	public int getHour() {
+		return hour;
+	}
+
 	public HourForecast() {
 	}
 
@@ -67,8 +71,12 @@ public class HourForecast {
 		return cloud;
 	}
 
-	public int getID() {
+	public String getID() {
 		return mID;
+	}
+
+	public void setID(String ID) {
+		mID = ID;
 	}
 
 	public static void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) throws SQLException, java.sql.SQLException {

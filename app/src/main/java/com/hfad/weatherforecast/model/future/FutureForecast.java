@@ -28,7 +28,7 @@ public class FutureForecast {
     private static final String COLUMN_ID = "_id";
     public static final String COLUMN_HOURFORECAST = "hourforecast";
 
-    @DatabaseField(columnName = COLUMN_ID, generatedId = true)
+    @DatabaseField(columnName = COLUMN_ID, id = true)
     private int mId;
 
     @DatabaseField(columnName = COLUMN_DATE)
@@ -57,11 +57,19 @@ public class FutureForecast {
         return data = "01.01.01";
     }
 
+    public void setId(int id) {
+        mId = id;
+    }
+
     public Astronomy getAstronomy() {
         return astronomy;
     }
 
     public static void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) throws SQLException {
         TableUtils.createTable(connectionSource, FutureForecast.class);
+    }
+
+    public int getId() {
+        return mId;
     }
 }

@@ -1,7 +1,6 @@
 package com.hfad.weatherforecast.model.GeoData;
 
 import java.sql.SQLException;
-import java.util.Random;
 
 import android.database.sqlite.SQLiteDatabase;
 
@@ -19,7 +18,7 @@ public class Wind {
     private static final String COLUMN_SPEED = "speed";
     private static final String COLUMN_ID = "_id";
 
-    @DatabaseField(columnName = COLUMN_ID, generatedId = true)
+    @DatabaseField(columnName = COLUMN_ID, id = true)
     private int mId;
 
     @DatabaseField(columnName = COLUMN_SPEED)
@@ -39,6 +38,10 @@ public class Wind {
 
     public int getId() {
         return mId;
+    }
+
+    public void setId(int id) {
+        mId = id;
     }
 
     public static void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) throws SQLException {

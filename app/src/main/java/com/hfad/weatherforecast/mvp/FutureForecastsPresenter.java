@@ -3,7 +3,6 @@ package com.hfad.weatherforecast.mvp;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import android.util.Log;
@@ -30,7 +29,6 @@ public class FutureForecastsPresenter extends MvpPresenter<FutureForecastsView> 
 	private static final String LOG_TAG = "Click";
 	ForecastService mForecastService = ForecastService.getInstance(WeatherApplication.getInstance());
 	DataBaseService mDataBaseService = new DataBaseService(WeatherApplication.getInstance());
-	List<FutureForecast> mFutureForecasts = new ArrayList<>();
 
 	@Override
 	protected void onFirstViewAttach() {
@@ -58,14 +56,11 @@ public class FutureForecastsPresenter extends MvpPresenter<FutureForecastsView> 
 					@Override
 					public void onNext(Response<FutureForecastsResponse> response) {
 						FutureForecastsResponse forecastResponse = response.body();
-						mFutureForecasts.add(forecastResponse.getForecasts().get(0));
-						mFutureForecasts.add(forecastResponse.getForecasts().get(1));
-						mFutureForecasts.add(forecastResponse.getForecasts().get(2));
-						mFutureForecasts.add(forecastResponse.getForecasts().get(3));
-						getViewState().showForecasts(mFutureForecasts);
+						List<FutureForecast> forecasts = forecastResponse.getForecasts().subList(0, 5);
+						getViewState().showForecasts(forecasts);
 
 						try {
-							mDataBaseService.saveFutureForecasts(mFutureForecasts);
+							mDataBaseService.saveFutureForecasts(forecasts);
 						} catch (SQLException e) {
 							e.printStackTrace();
 						}

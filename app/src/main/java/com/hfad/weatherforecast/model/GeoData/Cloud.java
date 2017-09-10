@@ -16,7 +16,7 @@ public class Cloud {
 	private static final String COLUMN_TITLE = "title";
 	private static final String COLUMN_ID = "_id";
 
-	@DatabaseField(columnName = COLUMN_ID,generatedId = true)
+	@DatabaseField(columnName = COLUMN_ID, id = true)
 	private int mId;
 
 	@DatabaseField(columnName = COLUMN_TITLE)
@@ -31,6 +31,10 @@ public class Cloud {
 	public String getValue(){return mValue;}
 
 	public int getId() {return mId;}
+
+	public void setId(int id) {
+		mId = id;
+	}
 
 	public static void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) throws SQLException, java.sql.SQLException {
 		TableUtils.createTable(connectionSource,Cloud.class);

@@ -17,8 +17,9 @@ public class Temperature {
 	private static final String COLUMN_AVG = "avg";
 	private static final String COLUMN_ID = "_id";
 
-	@DatabaseField(columnName = COLUMN_ID, generatedId = true)
-	private int mId;
+
+	@DatabaseField(columnName = COLUMN_ID, id = true)
+	private String mId;
 
 	@SerializedName("min")
 	private int min;
@@ -34,7 +35,13 @@ public class Temperature {
 		return avg;
 	}
 
-	public int getId() {return mId;	}
+	public String getId() {
+		return mId;
+	}
+
+	public void setId(String id) {
+		mId = id;
+	}
 
 	public static void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) throws SQLException {
 		TableUtils.createTable(connectionSource, Temperature.class);

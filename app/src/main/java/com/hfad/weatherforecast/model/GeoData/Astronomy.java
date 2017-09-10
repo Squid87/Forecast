@@ -17,7 +17,7 @@ public class Astronomy {
 	private static final String COLUMN_SUNSET = "sunset";
 	private static final String COLUMN_ID = "_id";
 
-	@DatabaseField(columnName = COLUMN_ID, generatedId = true)
+	@DatabaseField(columnName = COLUMN_ID, id = true)
 	private int mId;
 
 	@DatabaseField(columnName = COLUMN_SUNRISE)
@@ -43,6 +43,10 @@ public class Astronomy {
 
 	public String getSunset() {
 		return sunset;
+	}
+
+	public void setId(int id) {
+		mId = id;
 	}
 
 	public static void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) throws SQLException, java.sql.SQLException {
