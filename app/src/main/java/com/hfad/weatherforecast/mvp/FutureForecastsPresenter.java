@@ -4,14 +4,18 @@ package com.hfad.weatherforecast.mvp;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import android.util.Log;
+import android.view.Gravity;
+import android.widget.Toast;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.hfad.weatherforecast.WeatherApplication;
 import com.hfad.weatherforecast.database.DataBaseService;
 import com.hfad.weatherforecast.model.CityManager;
+import com.hfad.weatherforecast.model.current.CurrentForecast;
 import com.hfad.weatherforecast.model.future.FutureForecast;
 import com.hfad.weatherforecast.model.future.FutureForecastsResponse;
 import com.hfad.weatherforecast.mvp.View.FutureForecastsView;
@@ -48,7 +52,18 @@ public class FutureForecastsPresenter extends MvpPresenter<FutureForecastsView> 
 					public void onError(Throwable e) {
 
 						getViewState().hideProgress();
+
+						Toast toast = Toast.makeText(WeatherApplication.getInstance(),
+								"Данные загружены из Базы данных", Toast.LENGTH_LONG);
+						toast.show();
+						toast.setGravity(Gravity.CENTER, 0, 0);
+
 						//загружаем данные из БД
+						try {
+							getViewState().showForecasts(mDataBaseService.getFutureForecast());
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
 						e.printStackTrace();
 
 					}
@@ -56,7 +71,7 @@ public class FutureForecastsPresenter extends MvpPresenter<FutureForecastsView> 
 					@Override
 					public void onNext(Response<FutureForecastsResponse> response) {
 						FutureForecastsResponse forecastResponse = response.body();
-						List<FutureForecast> forecasts = forecastResponse.getForecasts().subList(0, 5);
+						List<FutureForecast> forecasts = forecastResponse.getForecasts().subList(0, 4);
 						getViewState().showForecasts(forecasts);
 
 						try {

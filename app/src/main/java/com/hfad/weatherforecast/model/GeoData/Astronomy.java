@@ -18,7 +18,7 @@ public class Astronomy {
 	private static final String COLUMN_ID = "_id";
 
 	@DatabaseField(columnName = COLUMN_ID, id = true)
-	private int mId;
+	private String mId;
 
 	@DatabaseField(columnName = COLUMN_SUNRISE)
 	@SerializedName("sunrise")
@@ -45,7 +45,7 @@ public class Astronomy {
 		return sunset;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		mId = id;
 	}
 

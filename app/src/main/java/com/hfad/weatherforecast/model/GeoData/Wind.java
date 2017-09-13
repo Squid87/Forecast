@@ -17,14 +17,16 @@ public class Wind {
     public static final String TABLE_NAME = "wind";
     private static final String COLUMN_SPEED = "speed";
     private static final String COLUMN_ID = "_id";
+    private static final String COLUMN_DIRECTION = "direction";
 
     @DatabaseField(columnName = COLUMN_ID, id = true)
-    private int mId;
+    private String mId;
 
     @DatabaseField(columnName = COLUMN_SPEED)
     @SerializedName("speed")
     private int mSpeed;
 
+    @DatabaseField(columnName = COLUMN_DIRECTION, foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
     @SerializedName("direction")
     private Direction mDirection;
 
@@ -36,11 +38,11 @@ public class Wind {
         return mDirection;
     }
 
-    public int getId() {
+    public String getId() {
         return mId;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         mId = id;
     }
 

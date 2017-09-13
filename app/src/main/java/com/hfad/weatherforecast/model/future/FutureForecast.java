@@ -27,6 +27,7 @@ public class FutureForecast {
     private static final String COLUMN_DATE = "data";
     private static final String COLUMN_ID = "_id";
     public static final String COLUMN_HOURFORECAST = "hourforecast";
+    private static final String COLUMN_ASTRONOMY = "astronomy";
 
     @DatabaseField(columnName = COLUMN_ID, id = true)
     private int mId;
@@ -41,12 +42,12 @@ public class FutureForecast {
     @SerializedName("hours")
     private Collection<HourForecast> mHours;
 
+    @DatabaseField(columnName = COLUMN_ASTRONOMY, foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
     @SerializedName("astronomy")
     private Astronomy astronomy;
 
     @SerializedName("links")
     private Links links;
-
 
     public Collection<HourForecast> getHours() {
         return mHours;
@@ -54,7 +55,7 @@ public class FutureForecast {
 
     public String getDate() {
         data = SIMPLE_DATE_FORMAT.format(mDate);
-        return data = "01.01.01";
+        return data;
     }
 
     public void setId(int id) {

@@ -6,6 +6,7 @@ import com.hfad.weatherforecast.model.future.FutureForecastsResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 
@@ -16,4 +17,5 @@ public interface ForecastApiInterface {
 
 	@GET("api/v1/forecasts/current")
 	Call<ForecastResponse> getCurrentForecast(@Query("city") City city);
+
 }

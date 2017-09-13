@@ -17,7 +17,7 @@ public class Cloud {
 	private static final String COLUMN_ID = "_id";
 
 	@DatabaseField(columnName = COLUMN_ID, id = true)
-	private int mId;
+	private String mId;
 
 	@DatabaseField(columnName = COLUMN_TITLE)
 	@SerializedName("title")
@@ -30,9 +30,9 @@ public class Cloud {
 
 	public String getValue(){return mValue;}
 
-	public int getId() {return mId;}
+	public String getId() {return mId;}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		mId = id;
 	}
 

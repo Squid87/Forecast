@@ -2,6 +2,7 @@ package com.hfad.weatherforecast.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -118,7 +119,7 @@ public class CurrentForecastFragment extends MvpAppCompatFragment implements Cur
     @Override
     public void showError() {
         Toast toast = Toast.makeText(getContext(),
-                "Проверьте соединение с интернетом!", Toast.LENGTH_SHORT);
+                "Проверьте соединение с интернетом!", Toast.LENGTH_LONG);
         toast.show();
         toast.setGravity(Gravity.CENTER, 0, 0);
     }

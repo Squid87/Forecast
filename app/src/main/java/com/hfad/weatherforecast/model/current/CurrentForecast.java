@@ -21,7 +21,7 @@ import com.j256.ormlite.table.TableUtils;
 @DatabaseTable(tableName = CurrentForecast.TABLE_NAME)
 public class CurrentForecast {
 
-	public static final int CURRENT_FORECAST_ID = 1111;
+	public static final String CURRENT_FORECAST_ID = "1111";
 	public static final String TABLE_NAME = "currentforecast";
 
 	private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM", Locale.getDefault());
@@ -37,7 +37,7 @@ public class CurrentForecast {
 	private static final String COLUMN_ICONPATH = "iconpath";
 
 	@DatabaseField(columnName = COLUMN_ID, id = true)
-	private int mId = CURRENT_FORECAST_ID;
+	private String mId = CURRENT_FORECAST_ID;
 
 	@DatabaseField(columnName = COLUMN_DATE)
 	@SerializedName("date")

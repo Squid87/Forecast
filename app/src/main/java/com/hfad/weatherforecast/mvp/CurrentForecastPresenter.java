@@ -1,11 +1,15 @@
 package com.hfad.weatherforecast.mvp;
 
 
+import android.view.Gravity;
+import android.widget.Toast;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
@@ -17,6 +21,7 @@ import com.hfad.weatherforecast.model.current.CurrentForecast;
 import com.hfad.weatherforecast.model.current.ForecastResponse;
 import com.hfad.weatherforecast.mvp.View.CurrentForecastView;
 import com.hfad.weatherforecast.network.ForecastService;
+import com.j256.ormlite.logger.Log;
 
 import retrofit2.Response;
 import rx.Observable;
@@ -52,12 +57,18 @@ public class CurrentForecastPresenter extends MvpPresenter<CurrentForecastView> 
 
                         getViewState().hideProgress();
                         getViewState().showError();
+                        Toast toast = Toast.makeText(WeatherApplication.getInstance(),
+                                "Данные загружены из Базы данных", Toast.LENGTH_LONG);
+                        toast.show();
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+
                         //загружаем данные из БД
-//                        try {
-//                            getViewState().showForecasts((CurrentForecast) mDataBaseService.getCurrentForecast());
-//                        } catch (SQLException e1) {
-//                            e1.printStackTrace();
-//                        }
+                        try {
+                            getViewState().showForecasts(mDataBaseService.getCurrentForecast());
+                        } catch (SQLException e1) {
+                            e1.printStackTrace();
+                        }
+                        e.printStackTrace();
                     }
 
                     @Override

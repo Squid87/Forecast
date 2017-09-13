@@ -79,6 +79,10 @@ public class HourForecast {
 		mID = ID;
 	}
 
+	public void setParentFutureForecast(FutureForecast parentFutureForecast) {
+		this.parentFutureForecast = parentFutureForecast;
+	}
+
 	public static void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) throws SQLException, java.sql.SQLException {
 		TableUtils.createTable(connectionSource, HourForecast.class);
 	}
